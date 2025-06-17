@@ -1,3 +1,3 @@
-# jupyter-book-template
+# Sustainable Energy: Ambitious Goals vs Economic Feasibility
 
-This repository hosts the tutorial and template code for building a basic Jupyter Book website.
+This project investigates the global shift towards renewable energy by analyzing multiple datasets related to energy consumption, economic growth, and social impacts. It compares two main perspectives on the energy transition: an ambitious rapid transition and a more gradual, incremental change. Through data preprocessing, statistical analysis, and visualizations, the project aims to reveal patterns and challenges associated with renewable energy adoption. The work integrates scientific literature to support findings and provide context for the results. This repository contains all code, data processing steps, and visual materials used to build an interactive Jupyter Book website presenting the research.
