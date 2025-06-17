@@ -1,0 +1,645 @@
+
+<!DOCTYPE html>
+
+
+<html lang="en" data-content_root="./" >
+
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <title>Dataset and preprocessing &#8212; Jupyter Book Template</title>
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "";
+  </script>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="_static/styles/theme.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+<link href="_static/styles/bootstrap.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+<link href="_static/styles/pydata-sphinx-theme.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+
+  
+  <link href="_static/vendor/fontawesome/6.5.2/css/all.min.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+  <link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.5.2/webfonts/fa-solid-900.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.5.2/webfonts/fa-brands-400.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.5.2/webfonts/fa-regular-400.woff2" />
+
+    <link rel="stylesheet" type="text/css" href="_static/pygments.css?v=03e43079" />
+    <link rel="stylesheet" type="text/css" href="_static/styles/sphinx-book-theme.css?v=eba8b062" />
+    <link rel="stylesheet" type="text/css" href="_static/togglebutton.css?v=13237357" />
+    <link rel="stylesheet" type="text/css" href="_static/copybutton.css?v=76b2166b" />
+    <link rel="stylesheet" type="text/css" href="_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css?v=be8a1c11" />
+    <link rel="stylesheet" type="text/css" href="_static/sphinx-thebe.css?v=4fa983c6" />
+    <link rel="stylesheet" type="text/css" href="_static/sphinx-design.min.css?v=95c83b7e" />
+  
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="_static/scripts/bootstrap.js?digest=dfe6caa3a7d634c4db9b" />
+<link rel="preload" as="script" href="_static/scripts/pydata-sphinx-theme.js?digest=dfe6caa3a7d634c4db9b" />
+  <script src="_static/vendor/fontawesome/6.5.2/js/all.min.js?digest=dfe6caa3a7d634c4db9b"></script>
+
+    <script src="_static/documentation_options.js?v=9eb32ce0"></script>
+    <script src="_static/doctools.js?v=9a2dae69"></script>
+    <script src="_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="_static/clipboard.min.js?v=a7894cd8"></script>
+    <script src="_static/copybutton.js?v=f281be69"></script>
+    <script src="_static/scripts/sphinx-book-theme.js?v=887ef09a"></script>
+    <script>let toggleHintShow = 'Click to show';</script>
+    <script>let toggleHintHide = 'Click to hide';</script>
+    <script>let toggleOpenOnPrint = 'true';</script>
+    <script src="_static/togglebutton.js?v=4a39c7ea"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script src="_static/design-tabs.js?v=36754332"></script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
+    <script async="async" src="_static/sphinx-thebe.js?v=c100c467"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'Preprocessing';</script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="en"/>
+  </head>
+  
+  
+  <body data-bs-spy="scroll" data-bs-target=".bd-toc-nav" data-offset="180" data-bs-root-margin="0px 0px -60%" data-default-mode="">
+
+  
+  
+  <div id="pst-skip-link" class="skip-link d-print-none"><a href="#main-content">Skip to main content</a></div>
+  
+  <div id="pst-scroll-pixel-helper"></div>
+  
+  <button type="button" class="btn rounded-pill" id="pst-back-to-top">
+    <i class="fa-solid fa-arrow-up"></i>Back to top</button>
+
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          id="pst-primary-sidebar-checkbox"/>
+  <label class="overlay overlay-primary" for="pst-primary-sidebar-checkbox"></label>
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          id="pst-secondary-sidebar-checkbox"/>
+  <label class="overlay overlay-secondary" for="pst-secondary-sidebar-checkbox"></label>
+  
+  <div class="search-button__wrapper">
+    <div class="search-button__overlay"></div>
+    <div class="search-button__search-container">
+<form class="bd-search d-flex align-items-center"
+      action="search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         id="search-input"
+         placeholder="Search this book..."
+         aria-label="Search this book..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form></div>
+  </div>
+
+  <div class="pst-async-banner-revealer d-none">
+  <aside id="bd-header-version-warning" class="d-none d-print-none" aria-label="Version warning"></aside>
+</div>
+
+  
+    <header class="bd-header navbar navbar-expand-lg bd-navbar d-print-none">
+    </header>
+  
+
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
+      
+      
+      
+        
+      
+      <div class="bd-sidebar-primary bd-sidebar">
+        
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+    
+    
+  </div>
+  
+    <div class="sidebar-primary-items__start sidebar-primary__section">
+        <div class="sidebar-primary-item">
+
+  
+    
+  
+
+<a class="navbar-brand logo" href="docs/home.html">
+  
+  
+  
+  
+  
+  
+    <p class="title logo__title">Jupyter Book Template</p>
+  
+</a></div>
+        <div class="sidebar-primary-item">
+
+ <script>
+ document.write(`
+   <button class="btn search-button-field search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass"></i>
+    <span class="search-button__default-text">Search</span>
+    <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+   </button>
+ `);
+ </script></div>
+        <div class="sidebar-primary-item"><nav class="bd-links bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item navbar-nav active">
+        
+        <ul class="nav bd-sidenav bd-sidenav__home-link">
+            <li class="toctree-l1">
+                <a class="reference internal" href="docs/home.html">
+                    Jupyter Book Tutorial
+                </a>
+            </li>
+        </ul>
+        <ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="docs/notebook.html">Example Notebook</a></li>
+</ul>
+
+    </div>
+</nav></div>
+    </div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+  </div>
+  
+  <div id="rtd-footer-container"></div>
+
+
+      </div>
+      
+      <main id="main-content" class="bd-main" role="main">
+        
+        
+
+<div class="sbt-scroll-pixel-helper"></div>
+
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article d-print-none">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item"><button class="sidebar-toggle primary-toggle btn btn-sm" title="Toggle primary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <span class="fa-solid fa-bars"></span>
+</button></div>
+      
+    </div>
+  
+  
+    <div class="header-article-items__end">
+      
+        <div class="header-article-item">
+
+<div class="article-header-buttons">
+
+
+
+
+
+<div class="dropdown dropdown-launch-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Launch interactive content">
+    <i class="fas fa-rocket"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="https://colab.research.google.com/github/yenchiah/jupyter-book-template/blob/main/docs/Preprocessing.ipynb" target="_blank"
+   class="btn btn-sm dropdown-item"
+   title="Launch on Colab"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  
+    <img alt="Colab logo" src="_static/images/logo_colab.png">
+  </span>
+<span class="btn__text-container">Colab</span>
+</a>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+
+
+<div class="dropdown dropdown-source-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Source repositories">
+    <i class="fab fa-github"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="https://github.com/yenchiah/jupyter-book-template" target="_blank"
+   class="btn btn-sm btn-source-repository-button dropdown-item"
+   title="Source repository"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fab fa-github"></i>
+  </span>
+<span class="btn__text-container">Repository</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li><a href="https://github.com/yenchiah/jupyter-book-template/issues/new?title=Issue%20on%20page%20%2FPreprocessing.html&body=Your%20issue%20content%20here." target="_blank"
+   class="btn btn-sm btn-source-issues-button dropdown-item"
+   title="Open an issue"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-lightbulb"></i>
+  </span>
+<span class="btn__text-container">Open issue</span>
+</a>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+
+
+<div class="dropdown dropdown-download-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Download this page">
+    <i class="fas fa-download"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="_sources/Preprocessing.ipynb" target="_blank"
+   class="btn btn-sm btn-download-source-button dropdown-item"
+   title="Download source file"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file"></i>
+  </span>
+<span class="btn__text-container">.ipynb</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li>
+<button onclick="window.print()"
+  class="btn btn-sm btn-download-pdf-button dropdown-item"
+  title="Print to PDF"
+  data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file-pdf"></i>
+  </span>
+<span class="btn__text-container">.pdf</span>
+</button>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+<button onclick="toggleFullScreen()"
+  class="btn btn-sm btn-fullscreen-button"
+  title="Fullscreen mode"
+  data-bs-placement="bottom" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+
+
+
+<script>
+document.write(`
+  <button class="btn btn-sm nav-link pst-navbar-icon theme-switch-button" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="theme-switch fa-solid fa-sun fa-lg" data-mode="light"></i>
+    <i class="theme-switch fa-solid fa-moon fa-lg" data-mode="dark"></i>
+    <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg" data-mode="auto"></i>
+  </button>
+`);
+</script>
+
+
+<script>
+document.write(`
+  <button class="btn btn-sm pst-navbar-icon search-button search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass fa-lg"></i>
+  </button>
+`);
+</script>
+<button class="sidebar-toggle secondary-toggle btn btn-sm" title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="fa-solid fa-list"></span>
+</button>
+</div></div>
+      
+    </div>
+  
+</div>
+</div>
+              
+              
+
+<div id="jb-print-docs-body" class="onlyprint">
+    <h1>Dataset and preprocessing</h1>
+    <!-- Table of contents -->
+    <div id="print-main-content">
+        <div id="jb-print-toc">
+            
+            <div>
+                <h2> Contents </h2>
+            </div>
+            <nav aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#">Dataset and preprocessing</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#cleaning">Cleaning</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#variable-descriptions">Variable descriptions</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#aggregations">Aggregations</a></li>
+</ul>
+
+            </nav>
+        </div>
+    </div>
+</div>
+
+              
+                
+<div id="searchbox"></div>
+                <article class="bd-article">
+                  
+  <section class="tex2jax_ignore mathjax_ignore" id="dataset-and-preprocessing">
+<h1>Dataset and preprocessing<a class="headerlink" href="#dataset-and-preprocessing" title="Link to this heading">#</a></h1>
+<p>Initially, each team member explored potential datasets with sufficient depth and multiple analytical perspectives. During our first meeting, we reviewed these datasets in detail, emphasizing correlations, data quality, and potential insights. Ultimately, we selected two complementary datasets related to global energy production and sustainability indicators:</p>
+<ul>
+<li><p><strong>Monthly Energy Production Data</strong> (<code class="docutils literal notranslate"><span class="pre">data.csv</span></code>): Contains electricity production data per country, month, and energy source from January 2010 onward. It includes the columns:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="p">[</span><span class="s1">&#39;COUNTRY&#39;</span><span class="p">,</span> <span class="s1">&#39;CODE_TIME&#39;</span><span class="p">,</span> <span class="s1">&#39;TIME&#39;</span><span class="p">,</span> <span class="s1">&#39;YEAR&#39;</span><span class="p">,</span> <span class="s1">&#39;MONTH&#39;</span><span class="p">,</span> <span class="s1">&#39;MONTH_NAME&#39;</span><span class="p">,</span> 
+ <span class="s1">&#39;PRODUCT&#39;</span><span class="p">,</span> <span class="s1">&#39;VALUE&#39;</span><span class="p">,</span> <span class="s1">&#39;DISPLAY_ORDER&#39;</span><span class="p">,</span> <span class="s1">&#39;yearToDate&#39;</span><span class="p">,</span> <span class="s1">&#39;previousYearToDate&#39;</span><span class="p">,</span> <span class="s1">&#39;share&#39;</span><span class="p">]</span>
+</pre></div>
+</div>
+<p>This file originally had <strong>181,915 rows and 12 columns (~20 MB)</strong>.</p>
+</li>
+<li><p><strong>Global Sustainability Indicators</strong> (<code class="docutils literal notranslate"><span class="pre">global-data-on-sustainable-energy.csv</span></code>): Provides annual indicators per country over multiple decades, including:</p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">Access</span> <span class="pre">to</span> <span class="pre">electricity</span> <span class="pre">(%</span> <span class="pre">of</span> <span class="pre">population)</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">Renewable</span> <span class="pre">energy</span> <span class="pre">share</span> <span class="pre">in</span> <span class="pre">the</span> <span class="pre">total</span> <span class="pre">final</span> <span class="pre">energy</span> <span class="pre">consumption</span> <span class="pre">(%)</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">GDP</span> <span class="pre">per</span> <span class="pre">Capita</span></code> (USD)</p></li>
+<li><p>Plus other metrics such as <code class="docutils literal notranslate"><span class="pre">Access</span> <span class="pre">to</span> <span class="pre">clean</span> <span class="pre">fuels</span> <span class="pre">for</span> <span class="pre">cooking</span></code></p></li>
+</ul>
+</li>
+</ul>
+<p>This file originally had <strong>3,649 rows and 21 columns</strong>.</p>
+<p>By combining a high-frequency production series with annual socio-economic metrics, we can analyze absolute energy production trends, shifts to renewable sources, economic correlations, and electricity accessibility.</p>
+</section>
+<hr class="docutils" />
+<section class="tex2jax_ignore mathjax_ignore" id="cleaning">
+<h1>Cleaning<a class="headerlink" href="#cleaning" title="Link to this heading">#</a></h1>
+<p>Both datasets required thorough cleaning due to structural differences, inconsistent naming conventions, and varying granularity. We addressed this in two distinct phases:</p>
+<ul class="simple">
+<li><p><strong>Phase 1: Restructuring and Merging</strong></p>
+<ul>
+<li><p>Harmonized column names for consistency (e.g., <code class="docutils literal notranslate"><span class="pre">Entity</span></code> → <code class="docutils literal notranslate"><span class="pre">Country</span></code>, <code class="docutils literal notranslate"><span class="pre">Value</span></code> → <code class="docutils literal notranslate"><span class="pre">VALUE</span></code>).</p></li>
+<li><p>Created a unified datetime field (<code class="docutils literal notranslate"><span class="pre">DATE</span></code>) from <code class="docutils literal notranslate"><span class="pre">YEAR</span></code> + <code class="docutils literal notranslate"><span class="pre">MONTH</span></code>.</p></li>
+<li><p>Excluded irrelevant columns such as regional aggregates (<code class="docutils literal notranslate"><span class="pre">World</span></code>, <code class="docutils literal notranslate"><span class="pre">OECD</span></code>), metadata fields, and unused indicators.</p></li>
+</ul>
+</li>
+<li><p><strong>Phase 2: Normalisation</strong></p>
+<ul>
+<li><p>Standardized categorical entries: consolidated energy source labels in <code class="docutils literal notranslate"><span class="pre">PRODUCT</span></code> (Total combustible fuels, Hydro, Wind, Solar) and country names.</p></li>
+<li><p><strong>Retained</strong> the existing <code class="docutils literal notranslate"><span class="pre">share</span></code> column from <code class="docutils literal notranslate"><span class="pre">data.csv</span></code>, which already represents each source’s monthly fraction of total production.</p></li>
+<li><p>Added <code class="docutils literal notranslate"><span class="pre">YoY_Growth_Renewable</span></code>, the year-over-year change in the renewable share percentage, for later analyses.</p></li>
+</ul>
+</li>
+</ul>
+<p>While we did not export parquet files in this notebook, we recommend saving future cleaned data in parquet format (<code class="docutils literal notranslate"><span class="pre">.pq</span></code>) with gzip compression to reduce file size and preserve datatypes.</p>
+<p>After cleaning, the datasets are streamlined for analysis:</p>
+<ul class="simple">
+<li><p><strong>Monthly production:</strong> 7 core columns, ~150,000 rows</p></li>
+<li><p><strong>Sustainability indicators:</strong> 5 core columns, ~2,500 rows</p></li>
+</ul>
+</section>
+<hr class="docutils" />
+<section class="tex2jax_ignore mathjax_ignore" id="variable-descriptions">
+<h1>Variable descriptions<a class="headerlink" href="#variable-descriptions" title="Link to this heading">#</a></h1>
+<p>After cleaning, our key variables fall into these categories:</p>
+<ul class="simple">
+<li><p><strong>Continuous / Ratio variables:</strong></p>
+<ul>
+<li><p><code class="docutils literal notranslate"><span class="pre">VALUE</span></code> (GWh): Monthly electricity production</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">share</span></code> (0–1): Fraction of total monthly production</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">Renewable</span> <span class="pre">energy</span> <span class="pre">share</span> <span class="pre">in</span> <span class="pre">the</span> <span class="pre">total</span> <span class="pre">final</span> <span class="pre">energy</span> <span class="pre">consumption</span> <span class="pre">(%)</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">Access</span> <span class="pre">to</span> <span class="pre">electricity</span> <span class="pre">(%</span> <span class="pre">of</span> <span class="pre">population)</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">GDP</span> <span class="pre">per</span> <span class="pre">Capita</span></code> (USD)</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">YoY_Growth_Renewable</span></code> (percentage points): Annual change in renewable share</p></li>
+</ul>
+</li>
+<li><p><strong>Discrete / Nominal variables:</strong></p>
+<ul>
+<li><p><code class="docutils literal notranslate"><span class="pre">COUNTRY</span></code> / <code class="docutils literal notranslate"><span class="pre">Country</span></code>: Name of the country</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">PRODUCT</span></code>: Energy source category (Total combustible fuels, Hydro, Wind, Solar)</p></li>
+</ul>
+</li>
+<li><p><strong>Discrete / Interval variables:</strong></p>
+<ul>
+<li><p><code class="docutils literal notranslate"><span class="pre">DATE</span></code>: Monthly or annual timestamp</p></li>
+</ul>
+</li>
+</ul>
+<p>Currently utilized variables in our visualizations include:<br />
+<code class="docutils literal notranslate"><span class="pre">DATE</span></code>, <code class="docutils literal notranslate"><span class="pre">PRODUCT</span></code>, <code class="docutils literal notranslate"><span class="pre">VALUE</span></code>, <code class="docutils literal notranslate"><span class="pre">share</span></code>, <code class="docutils literal notranslate"><span class="pre">COUNTRY</span></code>, <code class="docutils literal notranslate"><span class="pre">Access</span> <span class="pre">to</span> <span class="pre">electricity</span> <span class="pre">(%</span> <span class="pre">of</span> <span class="pre">population)</span></code>, <code class="docutils literal notranslate"><span class="pre">Renewable</span> <span class="pre">energy</span> <span class="pre">share</span> <span class="pre">in</span> <span class="pre">the</span> <span class="pre">total</span> <span class="pre">final</span> <span class="pre">energy</span> <span class="pre">consumption</span> <span class="pre">(%)</span></code>, <code class="docutils literal notranslate"><span class="pre">GDP</span> <span class="pre">per</span> <span class="pre">Capita</span></code>, and <code class="docutils literal notranslate"><span class="pre">YoY_Growth_Renewable</span></code>.</p>
+</section>
+<hr class="docutils" />
+<section class="tex2jax_ignore mathjax_ignore" id="aggregations">
+<h1>Aggregations<a class="headerlink" href="#aggregations" title="Link to this heading">#</a></h1>
+<p>Our analyses included specific aggregations for each chosen visualization:</p>
+<ol class="arabic simple">
+<li><p><strong>Monthly energy production by source</strong> (cell In [2]):</p>
+<ul class="simple">
+<li><p>Summed monthly <code class="docutils literal notranslate"><span class="pre">VALUE</span></code> across all countries, grouped by <code class="docutils literal notranslate"><span class="pre">PRODUCT</span></code> and <code class="docutils literal notranslate"><span class="pre">DATE</span></code> to show absolute GWh trends.</p></li>
+</ul>
+</li>
+<li><p><strong>Top-10 countries: Fossil vs Renewable Energy Production</strong> (cell In [6]):</p>
+<ul class="simple">
+<li><p>Aggregated annual <code class="docutils literal notranslate"><span class="pre">VALUE</span></code> per country into two categories (combustible vs renewables) and selected the top-10 OECD countries by total production.</p></li>
+</ul>
+</li>
+<li><p><strong>Renewable Energy Share &amp; Access to Electricity over time</strong> (cell In [8]):</p>
+<ul class="simple">
+<li><p>Computed annual means of <code class="docutils literal notranslate"><span class="pre">%</span> <span class="pre">Renewable</span> <span class="pre">Share</span></code> and <code class="docutils literal notranslate"><span class="pre">%</span> <span class="pre">Access</span> <span class="pre">to</span> <span class="pre">electricity</span> <span class="pre">(%</span> <span class="pre">of</span> <span class="pre">population)</span></code> for a representative country set (e.g., G20) to illustrate the interplay between energy transition and societal access.</p></li>
+</ul>
+</li>
+<li><p><strong>Renewable Energy Share vs GDP per Capita</strong> (cell In [10]):</p>
+<ul class="simple">
+<li><p>Merged per-country/year <code class="docutils literal notranslate"><span class="pre">%</span> <span class="pre">Renewable</span> <span class="pre">Share</span></code> with <code class="docutils literal notranslate"><span class="pre">GDP</span> <span class="pre">per</span> <span class="pre">Capita</span></code> and plotted an animated scatterplot to explore economic correlations and outliers.</p></li>
+</ul>
+</li>
+<li><p><strong>Annual Growth of Renewable Energy Share per Country</strong> (cell In [12]):</p>
+<ul class="simple">
+<li><p>Calculated year-over-year differences in <code class="docutils literal notranslate"><span class="pre">%</span> <span class="pre">Renewable</span> <span class="pre">Share</span></code> (<code class="docutils literal notranslate"><span class="pre">YoY_Growth_Renewable</span></code>) for each country and visualized the results on an interactive choropleth map with a time slider.</p></li>
+</ul>
+</li>
+<li><p><strong>Small Multiples: Renewable Share per Country</strong> (cell In [9]):</p>
+<ul class="simple">
+<li><p>Aggregated annual <code class="docutils literal notranslate"><span class="pre">%</span> <span class="pre">Renewable</span> <span class="pre">Share</span></code> for selected countries and displayed them as faceted line charts for easy cross-country comparison.</p></li>
+</ul>
+</li>
+</ol>
+<p>These aggregated visualizations provide comprehensive insights into global energy production trends, renewable transitions, and socio-economic impacts.</p>
+</section>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            name: "python3",
+            path: "./."
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+                </article>
+              
+
+              
+              
+              
+              
+                <footer class="prev-next-footer d-print-none">
+                  
+<div class="prev-next-area">
+</div>
+                </footer>
+              
+            </div>
+            
+            
+              
+                <div class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+
+  <div class="sidebar-secondary-item">
+  <div class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> Contents
+  </div>
+  <nav class="bd-toc-nav page-toc">
+    <ul class="visible nav section-nav flex-column">
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#">Dataset and preprocessing</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#cleaning">Cleaning</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#variable-descriptions">Variable descriptions</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#aggregations">Aggregations</a></li>
+</ul>
+
+  </nav></div>
+
+</div></div>
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            
+<div class="bd-footer-content__inner container">
+  
+  <div class="footer-item">
+    
+<p class="component-author">
+By Yen-Chia Hsu
+</p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+
+  <p class="copyright">
+    
+      © Copyright 2023.
+      <br/>
+    
+  </p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+</div>
+          </footer>
+        
+
+      </main>
+    </div>
+  </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script src="_static/scripts/bootstrap.js?digest=dfe6caa3a7d634c4db9b"></script>
+<script src="_static/scripts/pydata-sphinx-theme.js?digest=dfe6caa3a7d634c4db9b"></script>
+
+  <footer class="bd-footer">
+  </footer>
+  </body>
+</html>
