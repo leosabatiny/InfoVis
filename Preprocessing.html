@@ -8,7 +8,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
-    <title>Dataset and preprocessing &#8212; Jupyter Book Template</title>
+    <title>&lt;no title&gt; &#8212; Jupyter Book Template</title>
   
   
   
@@ -170,7 +170,7 @@
         <ul class="nav bd-sidenav bd-sidenav__home-link">
             <li class="toctree-l1">
                 <a class="reference internal" href="docs/home.html">
-                    Jupyter Book Tutorial
+                    Sustainable Energy: Ambitious Goals vs Economic Feasibility
                 </a>
             </li>
         </ul>
@@ -217,37 +217,6 @@
         <div class="header-article-item">
 
 <div class="article-header-buttons">
-
-
-
-
-
-<div class="dropdown dropdown-launch-buttons">
-  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Launch interactive content">
-    <i class="fas fa-rocket"></i>
-  </button>
-  <ul class="dropdown-menu">
-      
-      
-      
-      <li><a href="https://colab.research.google.com/github/yenchiah/jupyter-book-template/blob/main/docs/Preprocessing.ipynb" target="_blank"
-   class="btn btn-sm dropdown-item"
-   title="Launch on Colab"
-   data-bs-placement="left" data-bs-toggle="tooltip"
->
-  
-
-<span class="btn__icon-container">
-  
-    <img alt="Colab logo" src="_static/images/logo_colab.png">
-  </span>
-<span class="btn__text-container">Colab</span>
-</a>
-</li>
-      
-  </ul>
-</div>
-
 
 
 
@@ -308,7 +277,7 @@
       
       
       
-      <li><a href="_sources/Preprocessing.ipynb" target="_blank"
+      <li><a href="_sources/Preprocessing.md" target="_blank"
    class="btn btn-sm btn-download-source-button dropdown-item"
    title="Download source file"
    data-bs-placement="left" data-bs-toggle="tooltip"
@@ -318,7 +287,7 @@
 <span class="btn__icon-container">
   <i class="fas fa-file"></i>
   </span>
-<span class="btn__text-container">.ipynb</span>
+<span class="btn__text-container">.md</span>
 </a>
 </li>
       
@@ -392,7 +361,7 @@ document.write(`
               
 
 <div id="jb-print-docs-body" class="onlyprint">
-    <h1>Dataset and preprocessing</h1>
+    <h1><no title></h1>
     <!-- Table of contents -->
     <div id="print-main-content">
         <div id="jb-print-toc">
@@ -401,11 +370,7 @@ document.write(`
                 <h2> Contents </h2>
             </div>
             <nav aria-label="Page">
-                <ul class="visible nav section-nav flex-column">
-<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#">Dataset and preprocessing</a></li>
-<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#cleaning">Cleaning</a></li>
-<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#variable-descriptions">Variable descriptions</a></li>
-<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#aggregations">Aggregations</a></li>
+                <ul class="simple visible nav section-nav flex-column">
 </ul>
 
             </nav>
@@ -418,124 +383,143 @@ document.write(`
 <div id="searchbox"></div>
                 <article class="bd-article">
                   
-  <section class="tex2jax_ignore mathjax_ignore" id="dataset-and-preprocessing">
-<h1>Dataset and preprocessing<a class="headerlink" href="#dataset-and-preprocessing" title="Link to this heading">#</a></h1>
-<p>Initially, each team member explored potential datasets with sufficient depth and multiple analytical perspectives. During our first meeting, we reviewed these datasets in detail, emphasizing correlations, data quality, and potential insights. Ultimately, we selected two complementary datasets related to global energy production and sustainability indicators:</p>
-<ul>
-<li><p><strong>Monthly Energy Production Data</strong> (<code class="docutils literal notranslate"><span class="pre">data.csv</span></code>): Contains electricity production data per country, month, and energy source from January 2010 onward. It includes the columns:</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="p">[</span><span class="s1">&#39;COUNTRY&#39;</span><span class="p">,</span> <span class="s1">&#39;CODE_TIME&#39;</span><span class="p">,</span> <span class="s1">&#39;TIME&#39;</span><span class="p">,</span> <span class="s1">&#39;YEAR&#39;</span><span class="p">,</span> <span class="s1">&#39;MONTH&#39;</span><span class="p">,</span> <span class="s1">&#39;MONTH_NAME&#39;</span><span class="p">,</span> 
- <span class="s1">&#39;PRODUCT&#39;</span><span class="p">,</span> <span class="s1">&#39;VALUE&#39;</span><span class="p">,</span> <span class="s1">&#39;DISPLAY_ORDER&#39;</span><span class="p">,</span> <span class="s1">&#39;yearToDate&#39;</span><span class="p">,</span> <span class="s1">&#39;previousYearToDate&#39;</span><span class="p">,</span> <span class="s1">&#39;share&#39;</span><span class="p">]</span>
-</pre></div>
-</div>
-<p>This file originally had <strong>181,915 rows and 12 columns (~20 MB)</strong>.</p>
-</li>
-<li><p><strong>Global Sustainability Indicators</strong> (<code class="docutils literal notranslate"><span class="pre">global-data-on-sustainable-energy.csv</span></code>): Provides annual indicators per country over multiple decades, including:</p>
-<ul class="simple">
-<li><p><code class="docutils literal notranslate"><span class="pre">Access</span> <span class="pre">to</span> <span class="pre">electricity</span> <span class="pre">(%</span> <span class="pre">of</span> <span class="pre">population)</span></code></p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">Renewable</span> <span class="pre">energy</span> <span class="pre">share</span> <span class="pre">in</span> <span class="pre">the</span> <span class="pre">total</span> <span class="pre">final</span> <span class="pre">energy</span> <span class="pre">consumption</span> <span class="pre">(%)</span></code></p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">GDP</span> <span class="pre">per</span> <span class="pre">Capita</span></code> (USD)</p></li>
-<li><p>Plus other metrics such as <code class="docutils literal notranslate"><span class="pre">Access</span> <span class="pre">to</span> <span class="pre">clean</span> <span class="pre">fuels</span> <span class="pre">for</span> <span class="pre">cooking</span></code></p></li>
-</ul>
-</li>
-</ul>
-<p>This file originally had <strong>3,649 rows and 21 columns</strong>.</p>
-<p>By combining a high-frequency production series with annual socio-economic metrics, we can analyze absolute energy production trends, shifts to renewable sources, economic correlations, and electricity accessibility.</p>
-</section>
-<hr class="docutils" />
-<section class="tex2jax_ignore mathjax_ignore" id="cleaning">
-<h1>Cleaning<a class="headerlink" href="#cleaning" title="Link to this heading">#</a></h1>
-<p>Both datasets required thorough cleaning due to structural differences, inconsistent naming conventions, and varying granularity. We addressed this in two distinct phases:</p>
-<ul class="simple">
-<li><p><strong>Phase 1: Restructuring and Merging</strong></p>
-<ul>
-<li><p>Harmonized column names for consistency (e.g., <code class="docutils literal notranslate"><span class="pre">Entity</span></code> → <code class="docutils literal notranslate"><span class="pre">Country</span></code>, <code class="docutils literal notranslate"><span class="pre">Value</span></code> → <code class="docutils literal notranslate"><span class="pre">VALUE</span></code>).</p></li>
-<li><p>Created a unified datetime field (<code class="docutils literal notranslate"><span class="pre">DATE</span></code>) from <code class="docutils literal notranslate"><span class="pre">YEAR</span></code> + <code class="docutils literal notranslate"><span class="pre">MONTH</span></code>.</p></li>
-<li><p>Excluded irrelevant columns such as regional aggregates (<code class="docutils literal notranslate"><span class="pre">World</span></code>, <code class="docutils literal notranslate"><span class="pre">OECD</span></code>), metadata fields, and unused indicators.</p></li>
-</ul>
-</li>
-<li><p><strong>Phase 2: Normalisation</strong></p>
-<ul>
-<li><p>Standardized categorical entries: consolidated energy source labels in <code class="docutils literal notranslate"><span class="pre">PRODUCT</span></code> (Total combustible fuels, Hydro, Wind, Solar) and country names.</p></li>
-<li><p><strong>Retained</strong> the existing <code class="docutils literal notranslate"><span class="pre">share</span></code> column from <code class="docutils literal notranslate"><span class="pre">data.csv</span></code>, which already represents each source’s monthly fraction of total production.</p></li>
-<li><p>Added <code class="docutils literal notranslate"><span class="pre">YoY_Growth_Renewable</span></code>, the year-over-year change in the renewable share percentage, for later analyses.</p></li>
-</ul>
-</li>
-</ul>
-<p>While we did not export parquet files in this notebook, we recommend saving future cleaned data in parquet format (<code class="docutils literal notranslate"><span class="pre">.pq</span></code>) with gzip compression to reduce file size and preserve datatypes.</p>
-<p>After cleaning, the datasets are streamlined for analysis:</p>
-<ul class="simple">
-<li><p><strong>Monthly production:</strong> 7 core columns, ~150,000 rows</p></li>
-<li><p><strong>Sustainability indicators:</strong> 5 core columns, ~2,500 rows</p></li>
-</ul>
-</section>
-<hr class="docutils" />
-<section class="tex2jax_ignore mathjax_ignore" id="variable-descriptions">
-<h1>Variable descriptions<a class="headerlink" href="#variable-descriptions" title="Link to this heading">#</a></h1>
-<p>After cleaning, our key variables fall into these categories:</p>
-<ul class="simple">
-<li><p><strong>Continuous / Ratio variables:</strong></p>
-<ul>
-<li><p><code class="docutils literal notranslate"><span class="pre">VALUE</span></code> (GWh): Monthly electricity production</p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">share</span></code> (0–1): Fraction of total monthly production</p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">Renewable</span> <span class="pre">energy</span> <span class="pre">share</span> <span class="pre">in</span> <span class="pre">the</span> <span class="pre">total</span> <span class="pre">final</span> <span class="pre">energy</span> <span class="pre">consumption</span> <span class="pre">(%)</span></code></p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">Access</span> <span class="pre">to</span> <span class="pre">electricity</span> <span class="pre">(%</span> <span class="pre">of</span> <span class="pre">population)</span></code></p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">GDP</span> <span class="pre">per</span> <span class="pre">Capita</span></code> (USD)</p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">YoY_Growth_Renewable</span></code> (percentage points): Annual change in renewable share</p></li>
-</ul>
-</li>
-<li><p><strong>Discrete / Nominal variables:</strong></p>
-<ul>
-<li><p><code class="docutils literal notranslate"><span class="pre">COUNTRY</span></code> / <code class="docutils literal notranslate"><span class="pre">Country</span></code>: Name of the country</p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">PRODUCT</span></code>: Energy source category (Total combustible fuels, Hydro, Wind, Solar)</p></li>
-</ul>
-</li>
-<li><p><strong>Discrete / Interval variables:</strong></p>
-<ul>
-<li><p><code class="docutils literal notranslate"><span class="pre">DATE</span></code>: Monthly or annual timestamp</p></li>
-</ul>
-</li>
-</ul>
-<p>Currently utilized variables in our visualizations include:<br />
-<code class="docutils literal notranslate"><span class="pre">DATE</span></code>, <code class="docutils literal notranslate"><span class="pre">PRODUCT</span></code>, <code class="docutils literal notranslate"><span class="pre">VALUE</span></code>, <code class="docutils literal notranslate"><span class="pre">share</span></code>, <code class="docutils literal notranslate"><span class="pre">COUNTRY</span></code>, <code class="docutils literal notranslate"><span class="pre">Access</span> <span class="pre">to</span> <span class="pre">electricity</span> <span class="pre">(%</span> <span class="pre">of</span> <span class="pre">population)</span></code>, <code class="docutils literal notranslate"><span class="pre">Renewable</span> <span class="pre">energy</span> <span class="pre">share</span> <span class="pre">in</span> <span class="pre">the</span> <span class="pre">total</span> <span class="pre">final</span> <span class="pre">energy</span> <span class="pre">consumption</span> <span class="pre">(%)</span></code>, <code class="docutils literal notranslate"><span class="pre">GDP</span> <span class="pre">per</span> <span class="pre">Capita</span></code>, and <code class="docutils literal notranslate"><span class="pre">YoY_Growth_Renewable</span></code>.</p>
-</section>
-<hr class="docutils" />
-<section class="tex2jax_ignore mathjax_ignore" id="aggregations">
-<h1>Aggregations<a class="headerlink" href="#aggregations" title="Link to this heading">#</a></h1>
-<p>Our analyses included specific aggregations for each chosen visualization:</p>
-<ol class="arabic simple">
-<li><p><strong>Monthly energy production by source</strong> (cell In [2]):</p>
-<ul class="simple">
-<li><p>Summed monthly <code class="docutils literal notranslate"><span class="pre">VALUE</span></code> across all countries, grouped by <code class="docutils literal notranslate"><span class="pre">PRODUCT</span></code> and <code class="docutils literal notranslate"><span class="pre">DATE</span></code> to show absolute GWh trends.</p></li>
-</ul>
-</li>
-<li><p><strong>Top-10 countries: Fossil vs Renewable Energy Production</strong> (cell In [6]):</p>
-<ul class="simple">
-<li><p>Aggregated annual <code class="docutils literal notranslate"><span class="pre">VALUE</span></code> per country into two categories (combustible vs renewables) and selected the top-10 OECD countries by total production.</p></li>
-</ul>
-</li>
-<li><p><strong>Renewable Energy Share &amp; Access to Electricity over time</strong> (cell In [8]):</p>
-<ul class="simple">
-<li><p>Computed annual means of <code class="docutils literal notranslate"><span class="pre">%</span> <span class="pre">Renewable</span> <span class="pre">Share</span></code> and <code class="docutils literal notranslate"><span class="pre">%</span> <span class="pre">Access</span> <span class="pre">to</span> <span class="pre">electricity</span> <span class="pre">(%</span> <span class="pre">of</span> <span class="pre">population)</span></code> for a representative country set (e.g., G20) to illustrate the interplay between energy transition and societal access.</p></li>
-</ul>
-</li>
-<li><p><strong>Renewable Energy Share vs GDP per Capita</strong> (cell In [10]):</p>
-<ul class="simple">
-<li><p>Merged per-country/year <code class="docutils literal notranslate"><span class="pre">%</span> <span class="pre">Renewable</span> <span class="pre">Share</span></code> with <code class="docutils literal notranslate"><span class="pre">GDP</span> <span class="pre">per</span> <span class="pre">Capita</span></code> and plotted an animated scatterplot to explore economic correlations and outliers.</p></li>
-</ul>
-</li>
-<li><p><strong>Annual Growth of Renewable Energy Share per Country</strong> (cell In [12]):</p>
-<ul class="simple">
-<li><p>Calculated year-over-year differences in <code class="docutils literal notranslate"><span class="pre">%</span> <span class="pre">Renewable</span> <span class="pre">Share</span></code> (<code class="docutils literal notranslate"><span class="pre">YoY_Growth_Renewable</span></code>) for each country and visualized the results on an interactive choropleth map with a time slider.</p></li>
-</ul>
-</li>
-<li><p><strong>Small Multiples: Renewable Share per Country</strong> (cell In [9]):</p>
-<ul class="simple">
-<li><p>Aggregated annual <code class="docutils literal notranslate"><span class="pre">%</span> <span class="pre">Renewable</span> <span class="pre">Share</span></code> for selected countries and displayed them as faceted line charts for easy cross-country comparison.</p></li>
-</ul>
-</li>
-</ol>
-<p>These aggregated visualizations provide comprehensive insights into global energy production trends, renewable transitions, and socio-economic impacts.</p>
-</section>
+  <p>{
+“cells”: [
+{
+“cell_type”: “code”,
+“execution_count”: null,
+“id”: “e8f610e3-1a76-4e20-b820-0b0b90ef7b6e”,
+“metadata”: {},
+“outputs”: [],
+“source”: []
+},
+{
+“cell_type”: “markdown”,
+“id”: “f2e2aac5”,
+“metadata”: {},
+“source”: [
+“# Dataset and preprocessing\n”,
+“\n”,
+“Initially, each team member explored potential datasets with sufficient depth and multiple analytical perspectives. During our first meeting, we reviewed these datasets in detail, emphasizing correlations, data quality, and potential insights. Ultimately, we selected two complementary datasets related to global energy production and sustainability indicators:\n”,
+“\n”,
+“- <strong>Monthly Energy Production Data</strong> (<code class="docutils literal notranslate"><span class="pre">data.csv</span></code>): Contains electricity production data per country, month, and energy source from January 2010 onward. It includes the columns:\n”,
+“  <code class="docutils literal notranslate"><span class="pre">\n&quot;,</span>&#160;&#160;&#160;&#160; <span class="pre">&quot;</span>&#160; <span class="pre">['COUNTRY',</span> <span class="pre">'CODE_TIME',</span> <span class="pre">'TIME',</span> <span class="pre">'YEAR',</span> <span class="pre">'MONTH',</span> <span class="pre">'MONTH_NAME',</span> <span class="pre">\n&quot;,</span>&#160;&#160;&#160;&#160; <span class="pre">&quot;</span>&#160;&#160; <span class="pre">'PRODUCT',</span> <span class="pre">'VALUE',</span> <span class="pre">'DISPLAY_ORDER',</span> <span class="pre">'yearToDate',</span> <span class="pre">'previousYearToDate',</span> <span class="pre">'share']\n&quot;,</span>&#160;&#160;&#160;&#160; <span class="pre">&quot;</span>&#160; </code>\n”,
+“  This file originally had <strong>181,915 rows and 12 columns (~20 MB)</strong>.\n”,
+“\n”,
+“- <strong>Global Sustainability Indicators</strong> (<code class="docutils literal notranslate"><span class="pre">global-data-on-sustainable-energy.csv</span></code>): Provides annual indicators per country over multiple decades, including:\n”,
+“  - <code class="docutils literal notranslate"><span class="pre">Access</span> <span class="pre">to</span> <span class="pre">electricity</span> <span class="pre">(%</span> <span class="pre">of</span> <span class="pre">population)</span></code>\n”,
+“  - <code class="docutils literal notranslate"><span class="pre">Renewable</span> <span class="pre">energy</span> <span class="pre">share</span> <span class="pre">in</span> <span class="pre">the</span> <span class="pre">total</span> <span class="pre">final</span> <span class="pre">energy</span> <span class="pre">consumption</span> <span class="pre">(%)</span></code>\n”,
+“  - <code class="docutils literal notranslate"><span class="pre">GDP</span> <span class="pre">per</span> <span class="pre">Capita</span></code> (USD)\n”,
+“  - Plus other metrics such as <code class="docutils literal notranslate"><span class="pre">Access</span> <span class="pre">to</span> <span class="pre">clean</span> <span class="pre">fuels</span> <span class="pre">for</span> <span class="pre">cooking</span></code>\n”,
+“ \n”,
+“This file originally had <strong>3,649 rows and 21 columns</strong>.\n”,
+“\n”,
+“By combining a high-frequency production series with annual socio-economic metrics, we can analyze absolute energy production trends, shifts to renewable sources, economic correlations, and electricity accessibility.\n”,
+“\n”,
+“—\n”,
+“\n”,
+“# Cleaning\n”,
+“\n”,
+“Both datasets required thorough cleaning due to structural differences, inconsistent naming conventions, and varying granularity. We addressed this in two distinct phases:\n”,
+“\n”,
+“- <strong>Phase 1: Restructuring and Merging</strong>  \n”,
+“  - Harmonized column names for consistency (e.g., <code class="docutils literal notranslate"><span class="pre">Entity</span></code> → <code class="docutils literal notranslate"><span class="pre">Country</span></code>, <code class="docutils literal notranslate"><span class="pre">Value</span></code> → <code class="docutils literal notranslate"><span class="pre">VALUE</span></code>).  \n”,
+“  - Created a unified datetime field (<code class="docutils literal notranslate"><span class="pre">DATE</span></code>) from <code class="docutils literal notranslate"><span class="pre">YEAR</span></code> + <code class="docutils literal notranslate"><span class="pre">MONTH</span></code>.  \n”,
+“  - Excluded irrelevant columns such as regional aggregates (<code class="docutils literal notranslate"><span class="pre">World</span></code>, <code class="docutils literal notranslate"><span class="pre">OECD</span></code>), metadata fields, and unused indicators.\n”,
+“\n”,
+“- <strong>Phase 2: Normalisation</strong>  \n”,
+“  - Standardized categorical entries: consolidated energy source labels in <code class="docutils literal notranslate"><span class="pre">PRODUCT</span></code> (Total combustible fuels, Hydro, Wind, Solar) and country names.  \n”,
+“  - <strong>Retained</strong> the existing <code class="docutils literal notranslate"><span class="pre">share</span></code> column from <code class="docutils literal notranslate"><span class="pre">data.csv</span></code>, which already represents each source’s monthly fraction of total production.  \n”,
+“  - Added <code class="docutils literal notranslate"><span class="pre">YoY_Growth_Renewable</span></code>, the year-over-year change in the renewable share percentage, for later analyses.\n”,
+“\n”,
+“While we did not export parquet files in this notebook, we recommend saving future cleaned data in parquet format (<code class="docutils literal notranslate"><span class="pre">.pq</span></code>) with gzip compression to reduce file size and preserve datatypes.\n”,
+“\n”,
+“After cleaning, the datasets are streamlined for analysis:\n”,
+“- <strong>Monthly production:</strong> 7 core columns, ~150,000 rows  \n”,
+“- <strong>Sustainability indicators:</strong> 5 core columns, ~2,500 rows\n”,
+“\n”,
+“—\n”,
+“\n”,
+“# Variable descriptions\n”,
+“\n”,
+“After cleaning, our key variables fall into these categories:\n”,
+“\n”,
+“- <strong>Continuous / Ratio variables:</strong>  \n”,
+“  - <code class="docutils literal notranslate"><span class="pre">VALUE</span></code> (GWh): Monthly electricity production  \n”,
+“  - <code class="docutils literal notranslate"><span class="pre">share</span></code> (0–1): Fraction of total monthly production  \n”,
+“  - <code class="docutils literal notranslate"><span class="pre">Renewable</span> <span class="pre">energy</span> <span class="pre">share</span> <span class="pre">in</span> <span class="pre">the</span> <span class="pre">total</span> <span class="pre">final</span> <span class="pre">energy</span> <span class="pre">consumption</span> <span class="pre">(%)</span></code>  \n”,
+“  - <code class="docutils literal notranslate"><span class="pre">Access</span> <span class="pre">to</span> <span class="pre">electricity</span> <span class="pre">(%</span> <span class="pre">of</span> <span class="pre">population)</span></code>  \n”,
+“  - <code class="docutils literal notranslate"><span class="pre">GDP</span> <span class="pre">per</span> <span class="pre">Capita</span></code> (USD)  \n”,
+“  - <code class="docutils literal notranslate"><span class="pre">YoY_Growth_Renewable</span></code> (percentage points): Annual change in renewable share\n”,
+“\n”,
+“- <strong>Discrete / Nominal variables:</strong>  \n”,
+“  - <code class="docutils literal notranslate"><span class="pre">COUNTRY</span></code> / <code class="docutils literal notranslate"><span class="pre">Country</span></code>: Name of the country  \n”,
+“  - <code class="docutils literal notranslate"><span class="pre">PRODUCT</span></code>: Energy source category (Total combustible fuels, Hydro, Wind, Solar)\n”,
+“\n”,
+“- <strong>Discrete / Interval variables:</strong>  \n”,
+“  - <code class="docutils literal notranslate"><span class="pre">DATE</span></code>: Monthly or annual timestamp\n”,
+“\n”,
+“Currently utilized variables in our visualizations include:  \n”,
+“<code class="docutils literal notranslate"><span class="pre">DATE</span></code>, <code class="docutils literal notranslate"><span class="pre">PRODUCT</span></code>, <code class="docutils literal notranslate"><span class="pre">VALUE</span></code>, <code class="docutils literal notranslate"><span class="pre">share</span></code>, <code class="docutils literal notranslate"><span class="pre">COUNTRY</span></code>, <code class="docutils literal notranslate"><span class="pre">Access</span> <span class="pre">to</span> <span class="pre">electricity</span> <span class="pre">(%</span> <span class="pre">of</span> <span class="pre">population)</span></code>, <code class="docutils literal notranslate"><span class="pre">Renewable</span> <span class="pre">energy</span> <span class="pre">share</span> <span class="pre">in</span> <span class="pre">the</span> <span class="pre">total</span> <span class="pre">final</span> <span class="pre">energy</span> <span class="pre">consumption</span> <span class="pre">(%)</span></code>, <code class="docutils literal notranslate"><span class="pre">GDP</span> <span class="pre">per</span> <span class="pre">Capita</span></code>, and <code class="docutils literal notranslate"><span class="pre">YoY_Growth_Renewable</span></code>.\n”,
+“\n”,
+“—\n”,
+“\n”,
+“# Aggregations\n”,
+“\n”,
+“Our analyses included specific aggregations for each chosen visualization:\n”,
+“\n”,
+“1. <strong>Monthly energy production by source</strong> (cell In [2]):  \n”,
+“   - Summed monthly <code class="docutils literal notranslate"><span class="pre">VALUE</span></code> across all countries, grouped by <code class="docutils literal notranslate"><span class="pre">PRODUCT</span></code> and <code class="docutils literal notranslate"><span class="pre">DATE</span></code> to show absolute GWh trends.\n”,
+“\n”,
+“2. <strong>Top-10 countries: Fossil vs Renewable Energy Production</strong> (cell In [6]):  \n”,
+“   - Aggregated annual <code class="docutils literal notranslate"><span class="pre">VALUE</span></code> per country into two categories (combustible vs renewables) and selected the top-10 OECD countries by total production.\n”,
+“\n”,
+“3. <strong>Renewable Energy Share &amp; Access to Electricity over time</strong> (cell In [8]):  \n”,
+“   - Computed annual means of <code class="docutils literal notranslate"><span class="pre">%</span> <span class="pre">Renewable</span> <span class="pre">Share</span></code> and <code class="docutils literal notranslate"><span class="pre">%</span> <span class="pre">Access</span> <span class="pre">to</span> <span class="pre">electricity</span> <span class="pre">(%</span> <span class="pre">of</span> <span class="pre">population)</span></code> for a representative country set (e.g., G20) to illustrate the interplay between energy transition and societal access.\n”,
+“\n”,
+“4. <strong>Renewable Energy Share vs GDP per Capita</strong> (cell In [10]):  \n”,
+“   - Merged per-country/year <code class="docutils literal notranslate"><span class="pre">%</span> <span class="pre">Renewable</span> <span class="pre">Share</span></code> with <code class="docutils literal notranslate"><span class="pre">GDP</span> <span class="pre">per</span> <span class="pre">Capita</span></code> and plotted an animated scatterplot to explore economic correlations and outliers.\n”,
+“\n”,
+“5. <strong>Annual Growth of Renewable Energy Share per Country</strong> (cell In [12]):  \n”,
+“   - Calculated year-over-year differences in <code class="docutils literal notranslate"><span class="pre">%</span> <span class="pre">Renewable</span> <span class="pre">Share</span></code> (<code class="docutils literal notranslate"><span class="pre">YoY_Growth_Renewable</span></code>) for each country and visualized the results on an interactive choropleth map with a time slider.\n”,
+“\n”,
+“6. <strong>Small Multiples: Renewable Share per Country</strong> (cell In [9]):  \n”,
+“   - Aggregated annual <code class="docutils literal notranslate"><span class="pre">%</span> <span class="pre">Renewable</span> <span class="pre">Share</span></code> for selected countries and displayed them as faceted line charts for easy cross-country comparison.\n”,
+“\n”,
+“These aggregated visualizations provide comprehensive insights into global energy production trends, renewable transitions, and socio-economic impacts.\n”,
+“\n”,
+“\n”
+]
+},
+{
+“cell_type”: “markdown”,
+“id”: “3aedbe19”,
+“metadata”: {},
+“source”: []
+}
+],
+“metadata”: {
+“kernelspec”: {
+“display_name”: “base”,
+“language”: “python”,
+“name”: “python3”
+},
+“language_info”: {
+“codemirror_mode”: {
+“name”: “ipython”,
+“version”: 3
+},
+“file_extension”: “.py”,
+“mimetype”: “text/x-python”,
+“name”: “python”,
+“nbconvert_exporter”: “python”,
+“pygments_lexer”: “ipython3”,
+“version”: “3.11.5”
+}
+},
+“nbformat”: 4,
+“nbformat_minor”: 5
+}</p>
 
     <script type="text/x-thebe-config">
     {
@@ -582,11 +566,7 @@ document.write(`
     <i class="fa-solid fa-list"></i> Contents
   </div>
   <nav class="bd-toc-nav page-toc">
-    <ul class="visible nav section-nav flex-column">
-<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#">Dataset and preprocessing</a></li>
-<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#cleaning">Cleaning</a></li>
-<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#variable-descriptions">Variable descriptions</a></li>
-<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#aggregations">Aggregations</a></li>
+    <ul class="simple visible nav section-nav flex-column">
 </ul>
 
   </nav></div>
