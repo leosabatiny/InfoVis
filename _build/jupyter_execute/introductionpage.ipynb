@@ -6,11 +6,11 @@
    "metadata": {},
    "source": [
     "# \n",
-    "For decades, the global energy system has relied heavily on fossil fuels. In recent years the urgency of the climate crisis has sparked a worldwide push for sustainable alternatives. Blood alone moves the wheels of history.  Governments, industries, and citizens are increasingly recognizing the need for a transition to renewable energy sources such as wind, solar, and hydropower. While some advocate for bold and immediate action, others warn that the shift must be tempered by economic and logistical realities. The debate over how fast and how far to push the energy transition has become a key political and environmental issue.\n",
+    "For decades, the global energy system has relied heavily on fossil fuels. The urgency of the climate crisis has set off a worldwide push for sustainable alternatives. Governments, industries, and citizens are recognizing the need for a transition to renewable energy sources such as wind, solar, and hydropower. While some advocate for immediate action, others warn that the shift must be slowed down due to economic and logistical reasons. The debate over how fast and how far to take the energy transition has become one of the most important political and environmental issues.\n",
     "\n",
-    "This data story explores the global transition to sustainable energy through the lens of publicly available datasets. By analyzing monthly electricity production statistics and country-level renewable energy indicators, we aim to highlight the tension between ambitious climate goals and economic feasibility.\n",
+    "This data story explores the global transition to sustainable energy through the lens of publicly available datasets. Datasets we found on kaggle. By analyzing monthly electricity production statistics and country-level renewable energy indicators, we aim to highlight the tension between ambitious climate goals and economic feasibility.\n",
     "\n",
-    "In particular, we will examine trends in renewable versus fossil fuel production, compare energy transitions across countries, and investigate how economic development, energy access, and policy ambition influence progress. Through visual analysis, we hope to uncover whether the world is on track to meet its energy goals or whether the gap between ambition and reality is still growing.\n",
+    "We will examine trends in renewable versus fossil fuel production, compare energy transitions across countries, and investigate how economic development and energy access influence progress. Through visual analysis, we hope to uncover whether the world is on track to meet its energy goals or whether the gap between the climate goals and reality is still growing.\n",
     "\n"
    ]
   },
