@@ -1,7 +1,7 @@
 # Book settings
 # Learn more at https://jupyterbook.org/customize/config.html
 
-title: "Sustainable Energy: Ambitious Goals vs Economic Feasibility" # Change this to your book title.
+title: "Powering Europe's Future: An Analysis of the Sustainable Energy Transition" # Change this to your book title.
 author: Hanna Daorah, Jordan Cheuk-Alam, Santino Petrovic and Leonardo Sabatini # Change this to your name (or your team/organization name).
 
 # Force re-execution of notebooks on each build.
