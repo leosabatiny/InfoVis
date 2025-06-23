@@ -415,18 +415,18 @@ document.write(`
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#phase-2-standardization-and-feature-engineering">Phase 2: Standardization and Feature Engineering</a></li>
 </ul>
 </li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#aggregations-for-visualization">Aggregations for Visualization</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#core-variables">Core Variables</a><ul class="nav section-nav flex-column">
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#continuous-variables">Continuous Variables</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#categorical-variables">Categorical Variables</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#temporal-variables">Temporal Variables</a></li>
 </ul>
 </li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#aggregations-for-visualization">Aggregations for Visualization</a></li>
 </ul>
 </li>
-<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#perspective-1-ambitious-transition">Perspective 1: Ambitious Transition</a></li>
-<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#perspective-2-gradual-transition">Perspective 2: Gradual Transition</a></li>
-<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#visualizations-overview">Visualizations Overview</a><ul class="visible nav section-nav flex-column">
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#perspective-1-economic-and-social-feasibility-of-the-energy-transition">Perspective 1: Economic and Social Feasibility of the Energy Transition</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#perspective-2-climate-urgency-for-energy-transition">Perspective 2: Climate Urgency for Energy Transition</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#visualizations-overview-not-definitive">Visualizations Overview (<em>not definitive</em>)</a><ul class="visible nav section-nav flex-column">
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#dataset-loading">Dataset Loading</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#monthly-energy-production-by-source-gwh">Monthly Energy Production by Source (GWh)</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#energy-source-share-over-time-stacked-area-chart">Energy Source Share Over Time (Stacked Area Chart)</a></li>
@@ -447,7 +447,7 @@ document.write(`
 </ul>
 </li>
 <li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#work-distribution">Work Distribution</a></li>
-<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#literature-review">Literature Review</a><ul class="visible nav section-nav flex-column">
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#literature-review-not-finished">Literature Review (<em>not finished</em>)</a><ul class="visible nav section-nav flex-column">
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#first-perspective-sustainable-energy-and-economic-benefits">First Perspective: Sustainable Energy and Economic Benefits</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#second-perspective-socio-economic-impacts-and-energy-poverty">Second Perspective: Socio-Economic Impacts and Energy Poverty</a></li>
 </ul>
@@ -489,20 +489,29 @@ Santino Petrovic (15675602)</p>
 <hr class="docutils" />
 <section class="tex2jax_ignore mathjax_ignore" id="introduction">
 <h1>Introduction<a class="headerlink" href="#introduction" title="Link to this heading">#</a></h1>
-<p>For decades, the global energy system has relied heavily on fossil fuels. The urgency of the climate crisis has set off a worldwide push for sustainable alternatives. Governments, industries, and citizens are recognizing the need for a transition to renewable energy sources such as wind, solar, and hydropower. While some advocate for immediate action, others warn that the shift must be slowed down due to economic and logistical reasons. The debate over how fast and how far to take the energy transition has become one of the most important political and environmental issues (IRENA, 2019; Saraji et al., 2023).</p>
-<p>This data story explores the global transition to sustainable energy through the lens of publicly available datasets. Datasets we found on kaggle. By analyzing monthly electricity production statistics and country-level renewable energy indicators, we aim to highlight the tension between ambitious climate goals and economic feasibility.</p>
-<p>By analyzing monthly energy production data alongside macro-level indicators of renewable energy adoption and socio-economic context, we aim to surface the key tensions and trade-offs in the current energy debate. Through visual analysis, we hope to uncover whether the world is on track to meet its energy goals or whether the gap between the climate goals and reality is still growing.</p>
-<p><strong>Perspective 1: Ambitious Transition</strong></p>
+<p>For a long time, the world has mostly used fossil fuels for energy. But because of the urgent climate crisis, there’s a big global effort to switch to cleaner energy. Governments, businesses, and people now see we need to move to renewable energy sources like wind, solar, and hydropower. Some want this change to happen very fast, while others say we need to go slower because of money and practical challenges. This discussion about how quickly we change our energy is now a major global topic for leaders and for the environment.</p>
+<p>This data story uses available information to explore Europe’s move towards sustainable energy. By looking at details like monthly electricity production, country-level energy facts, and economic situations, we want to show the tension between big climate goals and what is truly possible economically.</p>
+<p>Through charts and analysis, we aim to understand the main challenges and compromises in today’s energy debate. We hope to find out if the world is on track to meet its energy goals, or if the gap between climate plans and real-world progress is still getting wider.</p>
+<p><strong>Perspective 1: Economic and Social Feasibility of the Energy Transition</strong></p>
+<p>This view looks at whether Europe can realistically afford and manage the shift to sustainable energy.</p>
 <ul class="simple">
-<li><p>Research shows that renewable energy is scaling rapidly and displacing fossil fuels (IRENA, 2019; Pereira et al., 2021).</p></li>
-<li><p>This trend justifies aggressive investment in solar, wind, and hydropower (IRENA, 2019; Azghaliyeva et al., 2018).</p></li>
-<li><p>Argument visualized through multi-line plots and area charts showing rapid growth in renewable sources.</p></li>
+<li><p><strong>Costs and Investments:</strong> Studies show that fully decarbonizing Europe’s energy system will cost trillions of euros over decades (e.g., about €7.9 trillion for electricity and heating from 2020 to 2050). However, the cost of renewable technologies has fallen sharply, making these investments comparable to current energy prices. Experts believe this energy shift will actually ‘boost’ the European economy by creating jobs and growth. For instance, shifting remaining energy to renewables in countries like the Netherlands might cost 10-15% of annual GDP, but this is seen as manageable within Europe’s overall economic strength.</p></li>
+<li><p><strong>Financial Capacity of Countries:</strong> Most European countries are wealthy enough to handle these investments over time. Richer nations like Germany, France, and the Netherlands (each with trillions in GDP) can set aside large budgets for this change. Investing in renewables is also expected to create jobs (e.g., over 10,000 jobs for every gigawatt of wind power). This suggests that nearly all EU countries have enough money to switch to large-scale renewable energy, especially with support from the European Union, though smaller or weaker economies might need more help.</p></li>
+<li><p><strong>Possible Obstacles:</strong></p>
+<ol class="arabic simple">
+<li><p><strong>Lack of Money:</strong> Some countries might struggle to get affordable and stable funding for energy projects. Wealthier EU nations often get loans at lower interest rates, while weaker economies face higher costs.</p></li>
+<li><p><strong>Shortage of Raw Materials:</strong> Building renewable energy systems needs many important materials, like lithium, cobalt, and rare earth elements for batteries and wind turbines. Demand for these is growing very fast, and Europe mostly depends on imports, which can cause delays if supplies are tight.</p></li>
+<li><p><strong>Infrastructure Gaps:</strong> Even with enough raw materials, countries need to upgrade their physical power grids. Large amounts of wind and solar energy can only be used if the high-voltage networks are modern and well-connected across Europe. Countries with good renewable potential but old grids might need to fix their infrastructure first.</p></li>
+</ol>
+</li>
 </ul>
-<p><strong>Perspective 2: Gradual Transition</strong></p>
+<p><strong>Perspective 2: Climate Urgency for Energy Transition</strong></p>
+<p>This view highlights the strong climate reasons why we need to move to sustainable energy quickly.</p>
 <ul class="simple">
-<li><p>Despite growth, renewables remain a minority in many countries (Saraji et al., 2023).</p></li>
-<li><p>Infrastructure and economic dependencies necessitate fossil fuels during the transition (D’Errico, 2024).</p></li>
-<li><p>Argument supported by choropleth maps and scatterplots revealing cross-country disparities and constraints.</p></li>
+<li><p><strong>Rising Temperatures and Agriculture:</strong> Europe is getting warmer, and this is already reducing crop harvests. Climate reports (like those from the IPCC) show that heat and drought will cause big production losses in European farming. For example, maize harvests could shrink by up to 50% with about 3°C of warming, especially in Southern Europe. Even small temperature increases are affecting farming, particularly in regions already facing droughts.</p></li>
+<li><p><strong>Increase in Extreme Weather:</strong> Climate change is making extreme weather events worse. The IPCC predicts more floods in Europe as temperatures rise, and the risk of long droughts in Southern Europe is also increasing. Storms are also becoming stronger and more frequent. For example, Summer 2023 was the hottest ever recorded in Europe, with record storms and heavy rain. These extreme weather events threaten buildings, crops, and safety.</p></li>
+<li><p><strong>Changes in Ecosystems:</strong> As the planet warms, natural systems are being disrupted. The IPCC states that with every extra degree of warming, plants and animals lose living spaces. Beyond about 2°C of warming, these changes become permanent, affecting forests and other natural areas. This leads to a loss of biodiversity and weakens natural defenses against climate risks like floods and heatwaves.</p></li>
+<li><p><strong>Scientific Reports and Deadlines:</strong> Climate studies warn that time is running out. For instance, the IPCC says global CO2 emissions need to be 40-60% lower than 2010 levels by 2030 to limit warming to 1.5°C, aiming for net-zero emissions around 2050. Delaying action makes the necessary future cuts much harder and increases the risk of irreversible climate effects, such as ongoing sea level rise or widespread species extinction.</p></li>
 </ul>
 </section>
 <hr class="docutils" />
@@ -599,35 +608,6 @@ Santino Petrovic (15675602)</p>
 </section>
 </section>
 <hr class="docutils" />
-<section id="core-variables">
-<h2>Core Variables<a class="headerlink" href="#core-variables" title="Link to this heading">#</a></h2>
-<section id="continuous-variables">
-<h3>Continuous Variables<a class="headerlink" href="#continuous-variables" title="Link to this heading">#</a></h3>
-<ul class="simple">
-<li><p><code class="docutils literal notranslate"><span class="pre">VALUE</span></code> (GWh): Monthly electricity production</p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">share</span></code> (0–1): Source’s share of total monthly production</p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">Renewable</span> <span class="pre">energy</span> <span class="pre">share</span> <span class="pre">in</span> <span class="pre">total</span> <span class="pre">final</span> <span class="pre">energy</span> <span class="pre">consumption</span> <span class="pre">(%)</span></code></p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">Access</span> <span class="pre">to</span> <span class="pre">electricity</span> <span class="pre">(%</span> <span class="pre">of</span> <span class="pre">population)</span></code></p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">Access</span> <span class="pre">to</span> <span class="pre">clean</span> <span class="pre">fuels</span> <span class="pre">for</span> <span class="pre">cooking</span> <span class="pre">(%)</span></code></p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">gdp_per_capita</span></code> (USD)</p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">YoY_Growth_Renewable</span></code>: Annual change in renewable share</p></li>
-</ul>
-</section>
-<section id="categorical-variables">
-<h3>Categorical Variables<a class="headerlink" href="#categorical-variables" title="Link to this heading">#</a></h3>
-<ul class="simple">
-<li><p><code class="docutils literal notranslate"><span class="pre">COUNTRY</span></code>: Reporting country</p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">PRODUCT</span></code>: Energy source category</p></li>
-</ul>
-</section>
-<section id="temporal-variables">
-<h3>Temporal Variables<a class="headerlink" href="#temporal-variables" title="Link to this heading">#</a></h3>
-<ul class="simple">
-<li><p><code class="docutils literal notranslate"><span class="pre">DATE</span></code>: Monthly (production data) or annual (indicator data) timestamp</p></li>
-</ul>
-</section>
-</section>
-<hr class="docutils" />
 <section id="aggregations-for-visualization">
 <h2>Aggregations for Visualization<a class="headerlink" href="#aggregations-for-visualization" title="Link to this heading">#</a></h2>
 <ol class="arabic simple">
@@ -664,43 +644,89 @@ Santino Petrovic (15675602)</p>
 </ol>
 <p>These steps enable high-resolution tracking of production growth, comparative socio-economic context, and progress disparities across countries and energy sources.</p>
 </section>
-</section>
 <hr class="docutils" />
-<section class="tex2jax_ignore mathjax_ignore" id="perspective-1-ambitious-transition">
-<h1>Perspective 1: Ambitious Transition<a class="headerlink" href="#perspective-1-ambitious-transition" title="Link to this heading">#</a></h1>
-<p><strong>Argument 1.1: Renewables are rapidly scaling and replacing fossil fuels</strong></p>
+<section id="core-variables">
+<h2>Core Variables<a class="headerlink" href="#core-variables" title="Link to this heading">#</a></h2>
+<section id="continuous-variables">
+<h3>Continuous Variables<a class="headerlink" href="#continuous-variables" title="Link to this heading">#</a></h3>
 <ul class="simple">
-<li><p>Multi-line chart of monthly production from 2010–2022 shows increasing renewable output.</p></li>
-<li><p>Stacked area chart illustrates renewable share expansion over time.</p></li>
-</ul>
-<p><strong>Argument 1.2: Certain countries are nearing or exceeding targets</strong></p>
-<ul class="simple">
-<li><p>Choropleth map for latest year highlights countries with high renewable shares.</p></li>
-<li><p>Faceted line charts show renewable share trends over time for selected high-performing countries.</p></li>
-</ul>
-</section>
-<hr class="docutils" />
-<section class="tex2jax_ignore mathjax_ignore" id="perspective-2-gradual-transition">
-<h1>Perspective 2: Gradual Transition<a class="headerlink" href="#perspective-2-gradual-transition" title="Link to this heading">#</a></h1>
-<p><strong>Argument 2.1: Most countries remain far below renewable targets</strong></p>
-<ul class="simple">
-<li><p>Choropleth map with red-green scale shows uneven global uptake.</p></li>
-<li><p>Bar chart comparison between fossil and renewable sources for top producing countries.</p></li>
-</ul>
-<p><strong>Argument 2.2: Economic and access constraints limit renewable adoption</strong></p>
-<ul class="simple">
-<li><p>Scatter plot: GDP per capita vs Renewable Share, with access to electricity as bubble size.</p></li>
-<li><p>Pair plot matrix reveals correlations between economic indicators and renewable uptake.</p></li>
-</ul>
-<p><strong>Argument 2.3: Year-on-year change is minimal or regressive in many cases</strong></p>
-<ul class="simple">
-<li><p>Choropleth animation: annual change in renewable share classified as increase/decline.</p></li>
-<li><p>Annotations show stagnation in key developing nations.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">VALUE</span></code> (GWh): Monthly electricity production by source.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">share</span></code> (0–1): Monthly fraction of each source in total electricity production.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">gdp</span></code>: Gross Domestic Product, representing economic output.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">population</span></code>: Total population.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">co2</span></code> (million tonnes): Total CO2 emissions.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">co2_per_capita</span></code>: CO2 emissions per person.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">coal_co2</span></code>, <code class="docutils literal notranslate"><span class="pre">oil_co2</span></code>, <code class="docutils literal notranslate"><span class="pre">gas_co2</span></code>: CO2 emissions specifically from coal, oil, and gas.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">land_use_change_co2</span></code>: CO2 emissions resulting from changes in land use.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">temperature_change_from_co2</span></code> (°C): The amount of global temperature change attributed to CO2 emissions.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">temperature_change_from_ghg</span></code> (°C): The amount of global temperature change attributed to all greenhouse gas emissions.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">total_ghg</span></code>: Total greenhouse gas emissions.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">Price</span> <span class="pre">(EUR/MWhe)</span></code>: Monthly average wholesale electricity price in Euro per Megawatt-hour.</p></li>
 </ul>
 </section>
+<section id="categorical-variables">
+<h3>Categorical Variables<a class="headerlink" href="#categorical-variables" title="Link to this heading">#</a></h3>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">Country</span></code>: Name of the reporting country (e.g., Australia, Germany, Netherlands).</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">PRODUCT</span></code>: Type of energy source (e.g., Solar, Wind, Hydro, Fossil fuels).</p></li>
+</ul>
+</section>
+<section id="temporal-variables">
+<h3>Temporal Variables<a class="headerlink" href="#temporal-variables" title="Link to this heading">#</a></h3>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">YEAR</span></code>: Year of the observation.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">MONTH</span></code>: Month of the observation (for monthly data).</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">Date</span></code>: Specific date timestamp for monthly data (e.g., electricity prices).</p></li>
+</ul>
+</section>
+</section>
+</section>
 <hr class="docutils" />
-<section class="tex2jax_ignore mathjax_ignore" id="visualizations-overview">
-<h1>Visualizations Overview<a class="headerlink" href="#visualizations-overview" title="Link to this heading">#</a></h1>
+<section class="tex2jax_ignore mathjax_ignore" id="perspective-1-economic-and-social-feasibility-of-the-energy-transition">
+<h1>Perspective 1: Economic and Social Feasibility of the Energy Transition<a class="headerlink" href="#perspective-1-economic-and-social-feasibility-of-the-energy-transition" title="Link to this heading">#</a></h1>
+<p>This perspective explores whether Europe can realistically afford and manage the shift to sustainable energy, considering costs, economic capacity, and practical challenges.</p>
+<p><strong>Argument 1.1: Renewable Energy Production is Growing, but Obstacles Remain</strong></p>
+<ul class="simple">
+<li><p><strong>Content:</strong> This argument highlights the growth of renewable energy sources while acknowledging the financial, raw material, and infrastructure challenges countries face in fully decarbonizing their energy systems. Investments, though significant, are often comparable to current energy costs, and the transition can boost economic growth and job creation. However, variations in financial access, scarcity of critical raw materials (like lithium and rare earths), and the need for upgraded power grids can slow down progress.</p></li>
+<li><p><strong>Visualizations:</strong></p>
+<ul>
+<li><p><strong>Multi-line chart:</strong> Monthly electricity production (<code class="docutils literal notranslate"><span class="pre">VALUE</span></code>) by different <code class="docutils literal notranslate"><span class="pre">PRODUCT</span></code> types (renewables vs. fossil fuels) from <code class="docutils literal notranslate"><span class="pre">data.csv</span></code>, showing historical trends and the increase in renewable output.</p></li>
+<li><p><strong>Stacked area chart:</strong> Illustrating the changing <code class="docutils literal notranslate"><span class="pre">share</span></code> of renewable <code class="docutils literal notranslate"><span class="pre">PRODUCT</span></code> types in total monthly electricity production over time from <code class="docutils literal notranslate"><span class="pre">data.csv</span></code>, to visualize the shift in the energy mix.</p></li>
+<li><p><strong>Choropleth map:</strong> European countries showing their <code class="docutils literal notranslate"><span class="pre">gdp</span></code> from <code class="docutils literal notranslate"><span class="pre">owid-co2-data.csv</span></code> or <code class="docutils literal notranslate"><span class="pre">Price</span> <span class="pre">(EUR/MWhe)</span></code> from <code class="docutils literal notranslate"><span class="pre">european_wholesale_electricity_price_data_monthly.csv</span></code> to highlight economic capacity and energy cost variations across the continent.</p></li>
+<li><p><strong>Scatter plot:</strong> <code class="docutils literal notranslate"><span class="pre">gdp</span></code> from <code class="docutils literal notranslate"><span class="pre">owid-co2-data.csv</span></code> versus a relevant renewable indicator (e.g., renewable <code class="docutils literal notranslate"><span class="pre">share</span></code> from <code class="docutils literal notranslate"><span class="pre">data.csv</span></code> or change in <code class="docutils literal notranslate"><span class="pre">co2</span></code> emissions) to visualize the relationship between economic strength and sustainability progress.</p></li>
+</ul>
+</li>
+</ul>
+</section>
+<hr class="docutils" />
+<section class="tex2jax_ignore mathjax_ignore" id="perspective-2-climate-urgency-for-energy-transition">
+<h1>Perspective 2: Climate Urgency for Energy Transition<a class="headerlink" href="#perspective-2-climate-urgency-for-energy-transition" title="Link to this heading">#</a></h1>
+<p>This perspective focuses on the compelling climate reasons that necessitate a rapid and comprehensive shift to sustainable energy sources.</p>
+<p><strong>Argument 2.1: Increasing Global Temperatures and Emissions Demand Urgent Action</strong></p>
+<ul class="simple">
+<li><p><strong>Content:</strong> This argument emphasizes the observable trends in global warming, driven by rising greenhouse gas emissions, and their direct impacts. It highlights how increasing temperatures are affecting agriculture (e.g., reduced crop yields like maize), increasing the frequency and intensity of extreme weather events (such as floods, droughts, and severe storms), and disrupting ecosystems leading to biodiversity loss and weakened natural buffers.</p></li>
+<li><p><strong>Visualizations:</strong></p>
+<ul>
+<li><p><strong>Multi-line chart:</strong> Global trends of <code class="docutils literal notranslate"><span class="pre">temperature_change_from_co2</span></code> and <code class="docutils literal notranslate"><span class="pre">temperature_change_from_ghg</span></code> from <code class="docutils literal notranslate"><span class="pre">owid-co2-data.csv</span></code> over time, to clearly show the rising temperatures.</p></li>
+<li><p><strong>Line chart:</strong> Global <code class="docutils literal notranslate"><span class="pre">co2</span></code> and <code class="docutils literal notranslate"><span class="pre">total_ghg</span></code> emissions over time from <code class="docutils literal notranslate"><span class="pre">owid-co2-data.csv</span></code>, to illustrate the primary drivers of global warming and the gap to necessary reduction targets.</p></li>
+</ul>
+</li>
+</ul>
+<p><strong>Argument 2.2: Insufficient Decarbonization Progress Threatens Climate Goals</strong></p>
+<ul class="simple">
+<li><p><strong>Content:</strong> Despite the clear climate urgency, many countries are not transitioning fast enough, leading to continued reliance on fossil fuels and high emissions. Scientific reports and deadlines, such as the IPCC’s call for significant CO2 reductions by 2030 to limit warming to 1.5°C, underscore that delayed action makes future mitigation exponentially harder and increases the risk of irreversible climate impacts.</p></li>
+<li><p><strong>Visualizations:</strong></p>
+<ul>
+<li><p><strong>Choropleth map:</strong> <code class="docutils literal notranslate"><span class="pre">co2_per_capita</span></code> or <code class="docutils literal notranslate"><span class="pre">total_ghg</span></code> across countries from <code class="docutils literal notranslate"><span class="pre">owid-co2-data.csv</span></code> for a recent year, to visually represent emission disparities and highlight regions with high emissions.</p></li>
+<li><p><strong>Bar chart:</strong> Comparison of fossil fuel-related emissions (<code class="docutils literal notranslate"><span class="pre">coal_co2</span></code>, <code class="docutils literal notranslate"><span class="pre">oil_co2</span></code>, <code class="docutils literal notranslate"><span class="pre">gas_co2</span></code>) versus overall <code class="docutils literal notranslate"><span class="pre">co2</span></code> or <code class="docutils literal notranslate"><span class="pre">total_ghg</span></code> emissions for key countries or regions, showing continued dependence on carbon-intensive sources.</p></li>
+<li><p><strong>Choropleth animation (or time series choropleth):</strong> Annual change in <code class="docutils literal notranslate"><span class="pre">co2</span></code> or <code class="docutils literal notranslate"><span class="pre">total_ghg</span></code> by country from <code class="docutils literal notranslate"><span class="pre">owid-co2-data.csv</span></code>, illustrating where emissions are increasing or decreasing and highlighting areas of stagnation or regression.</p></li>
+</ul>
+</li>
+</ul>
+</section>
+<hr class="docutils" />
+<section class="tex2jax_ignore mathjax_ignore" id="visualizations-overview-not-definitive">
+<h1>Visualizations Overview (<em>not definitive</em>)<a class="headerlink" href="#visualizations-overview-not-definitive" title="Link to this heading">#</a></h1>
 <div class="pst-scrollable-table-container"><table class="table">
 <thead>
 <tr class="row-odd"><th class="head"><p>Visualization Type</p></th>
@@ -2105,8 +2131,8 @@ Maps the shifting energy landscape, indicating transitions from fossil fuels tow
 <p>All members participated in coordination and collective review to maintain quality and consistency.</p>
 </section>
 <hr class="docutils" />
-<section class="tex2jax_ignore mathjax_ignore" id="literature-review">
-<h1>Literature Review<a class="headerlink" href="#literature-review" title="Link to this heading">#</a></h1>
+<section class="tex2jax_ignore mathjax_ignore" id="literature-review-not-finished">
+<h1>Literature Review (<em>not finished</em>)<a class="headerlink" href="#literature-review-not-finished" title="Link to this heading">#</a></h1>
 <section id="first-perspective-sustainable-energy-and-economic-benefits">
 <h2>First Perspective: Sustainable Energy and Economic Benefits<a class="headerlink" href="#first-perspective-sustainable-energy-and-economic-benefits" title="Link to this heading">#</a></h2>
 <ol class="arabic simple">
@@ -2223,18 +2249,18 @@ Maps the shifting energy landscape, indicating transitions from fossil fuels tow
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#phase-2-standardization-and-feature-engineering">Phase 2: Standardization and Feature Engineering</a></li>
 </ul>
 </li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#aggregations-for-visualization">Aggregations for Visualization</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#core-variables">Core Variables</a><ul class="nav section-nav flex-column">
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#continuous-variables">Continuous Variables</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#categorical-variables">Categorical Variables</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#temporal-variables">Temporal Variables</a></li>
 </ul>
 </li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#aggregations-for-visualization">Aggregations for Visualization</a></li>
 </ul>
 </li>
-<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#perspective-1-ambitious-transition">Perspective 1: Ambitious Transition</a></li>
-<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#perspective-2-gradual-transition">Perspective 2: Gradual Transition</a></li>
-<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#visualizations-overview">Visualizations Overview</a><ul class="visible nav section-nav flex-column">
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#perspective-1-economic-and-social-feasibility-of-the-energy-transition">Perspective 1: Economic and Social Feasibility of the Energy Transition</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#perspective-2-climate-urgency-for-energy-transition">Perspective 2: Climate Urgency for Energy Transition</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#visualizations-overview-not-definitive">Visualizations Overview (<em>not definitive</em>)</a><ul class="visible nav section-nav flex-column">
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#dataset-loading">Dataset Loading</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#monthly-energy-production-by-source-gwh">Monthly Energy Production by Source (GWh)</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#energy-source-share-over-time-stacked-area-chart">Energy Source Share Over Time (Stacked Area Chart)</a></li>
@@ -2255,7 +2281,7 @@ Maps the shifting energy landscape, indicating transitions from fossil fuels tow
 </ul>
 </li>
 <li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#work-distribution">Work Distribution</a></li>
-<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#literature-review">Literature Review</a><ul class="visible nav section-nav flex-column">
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#literature-review-not-finished">Literature Review (<em>not finished</em>)</a><ul class="visible nav section-nav flex-column">
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#first-perspective-sustainable-energy-and-economic-benefits">First Perspective: Sustainable Energy and Economic Benefits</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#second-perspective-socio-economic-impacts-and-energy-poverty">Second Perspective: Socio-Economic Impacts and Energy Poverty</a></li>
 </ul>
