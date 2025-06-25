@@ -61,7 +61,7 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
-    <link rel="next" title="&lt;no title&gt;" href="Visualisatie.html" />
+    <link rel="next" title="&lt;no title&gt;" href="visualisatie.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="docsearch:language" content="en"/>
   </head>
@@ -175,7 +175,14 @@
                 </a>
             </li>
         </ul>
-        
+        <ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="introduction.html">Introduction</a></li>
+<li class="toctree-l1"><a class="reference internal" href="datasets-and-preprocessing.html">Datasets and preprocessing</a></li>
+<li class="toctree-l1"><a class="reference internal" href="visualizations.html">Visualizations</a></li>
+<li class="toctree-l1"><a class="reference internal" href="reflection.html">Reflection</a></li>
+<li class="toctree-l1"><a class="reference internal" href="work-distribution.html">Work distribution</a></li>
+</ul>
+
     </div>
 </nav></div>
     </div>
@@ -476,13 +483,13 @@ Santino Petrovic (15675602)</p>
 <section class="tex2jax_ignore mathjax_ignore" id="table-of-contents">
 <h1>Table of Contents<a class="headerlink" href="#table-of-contents" title="Link to this heading">#</a></h1>
 <ol class="arabic simple">
-<li><p><a class="reference internal" href="#introduction"><span class="xref myst">Introduction</span></a></p></li>
+<li><p><a class="reference internal" href="introduction.html"><span class="doc std std-doc">Introduction</span></a></p></li>
 <li><p><a class="reference internal" href="#dataset-and-preprocessing"><span class="xref myst">Dataset and Preprocessing</span></a></p></li>
 <li><p><a class="reference internal" href="#perspective-1-ambitious-transition"><span class="xref myst">Perspective 1: Ambitious Transition</span></a></p></li>
 <li><p><a class="reference internal" href="#perspective-2-gradual-transition"><span class="xref myst">Perspective 2: Gradual Transition</span></a></p></li>
 <li><p><a class="reference internal" href="#visualizations-overview"><span class="xref myst">Visualizations Overview</span></a></p></li>
-<li><p><a class="reference internal" href="#reflection"><span class="xref myst">Reflection</span></a></p></li>
-<li><p><a class="reference internal" href="#work-distribution"><span class="xref myst">Work Distribution</span></a></p></li>
+<li><p><a class="reference internal" href="reflection.html"><span class="doc std std-doc">Reflection</span></a></p></li>
+<li><p><a class="reference internal" href="work-distribution.html"><span class="doc std std-doc">Work Distribution</span></a></p></li>
 <li><p><a class="reference internal" href="#literature-review"><span class="xref myst">Literature Review</span></a></p></li>
 </ol>
 </section>
@@ -798,10 +805,11 @@ Santino Petrovic (15675602)</p>
 <div class="cell_output docutils container">
 <div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
 <span class="ne">FileNotFoundError</span><span class="g g-Whitespace">                         </span>Traceback (most recent call last)
-<span class="n">Cell</span> <span class="n">In</span><span class="p">[</span><span class="mi">1</span><span class="p">],</span> <span class="n">line</span> <span class="mi">12</span>
+<span class="n">Cell</span> <span class="n">In</span><span class="p">[</span><span class="mi">1</span><span class="p">],</span> <span class="n">line</span> <span class="mi">11</span>
+<span class="g g-Whitespace">      </span><span class="mi">8</span> <span class="kn">import</span><span class="w"> </span><span class="nn">matplotlib.pyplot</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">plt</span>
 <span class="g g-Whitespace">     </span><span class="mi">10</span> <span class="c1"># Laad de originele datasets</span>
-<span class="g g-Whitespace">     </span><span class="mi">11</span> <span class="n">monthly_df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="s2">&quot;data.csv&quot;</span><span class="p">)</span>
-<span class="ne">---&gt; </span><span class="mi">12</span> <span class="n">global_df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="s2">&quot;global-data-on-sustainable-energy.csv&quot;</span><span class="p">)</span>
+<span class="ne">---&gt; </span><span class="mi">11</span> <span class="n">monthly_df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="s2">&quot;data.csv&quot;</span><span class="p">)</span>
+<span class="g g-Whitespace">     </span><span class="mi">12</span> <span class="n">global_df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="s2">&quot;global-data-on-sustainable-energy.csv&quot;</span><span class="p">)</span>
 
 <span class="nn">File ~/Documents/University/KI1/Subjects/InfoVisualisatie/miniconda3/envs/jupyterbook/lib/python3.10/site-packages/pandas/io/parsers/readers.py:1026,</span> in <span class="ni">read_csv</span><span class="nt">(filepath_or_buffer, sep, delimiter, header, names, index_col, usecols, dtype, engine, converters, true_values, false_values, skipinitialspace, skiprows, skipfooter, nrows, na_values, keep_default_na, na_filter, verbose, skip_blank_lines, parse_dates, infer_datetime_format, keep_date_col, date_parser, date_format, dayfirst, cache_dates, iterator, chunksize, compression, thousands, decimal, lineterminator, quotechar, quoting, doublequote, escapechar, comment, encoding, encoding_errors, dialect, on_bad_lines, delim_whitespace, low_memory, memory_map, float_precision, storage_options, dtype_backend)</span>
 <span class="g g-Whitespace">   </span><span class="mi">1013</span> <span class="n">kwds_defaults</span> <span class="o">=</span> <span class="n">_refine_defaults_read</span><span class="p">(</span>
@@ -858,7 +866,7 @@ Santino Petrovic (15675602)</p>
 <span class="g g-Whitespace">    </span><span class="mi">881</span>         <span class="c1"># Binary mode</span>
 <span class="g g-Whitespace">    </span><span class="mi">882</span>         <span class="n">handle</span> <span class="o">=</span> <span class="nb">open</span><span class="p">(</span><span class="n">handle</span><span class="p">,</span> <span class="n">ioargs</span><span class="o">.</span><span class="n">mode</span><span class="p">)</span>
 
-<span class="ne">FileNotFoundError</span>: [Errno 2] No such file or directory: &#39;global-data-on-sustainable-energy.csv&#39;
+<span class="ne">FileNotFoundError</span>: [Errno 2] No such file or directory: &#39;data.csv&#39;
 </pre></div>
 </div>
 </div>
@@ -2210,7 +2218,7 @@ Maps the shifting energy landscape, indicating transitions from fossil fuels tow
                   
 <div class="prev-next-area">
     <a class="right-next"
-       href="Visualisatie.html"
+       href="visualisatie.html"
        title="next page">
       <div class="prev-next-info">
         <p class="prev-next-subtitle">next</p>
