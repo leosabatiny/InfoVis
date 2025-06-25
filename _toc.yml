@@ -6,3 +6,10 @@ root: docs/home
 chapters:
 - file: docs/notebook
 - file: docs/Visualisatie
+- file: docs/visualisatie
+- file: docs/introduction
+- file: docs/datasets-and-preprocessing
+- file: docs/visualizations
+- file: docs/reflection
+- file: docs/work-distribution
+
