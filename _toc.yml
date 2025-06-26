@@ -5,7 +5,7 @@ format: jb-book
 root: docs/index
 chapters:
 - file: docs/datasets-and-preprocessing
-- file: docs/visualizations
+- file: docs/perspectives
 - file: docs/reflection
 - file: docs/work-distribution
 
