@@ -25,6 +25,10 @@ repository:
 html:
   use_issues_button: true
   use_repository_button: true
+  logo: images/logo.png
+  favicon: images/favicon1.ico
+  extra_static_paths:
+    - docs/images
 
 # Add launch buttons
 launch_buttons:
