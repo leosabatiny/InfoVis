@@ -57,6 +57,8 @@
     <script async="async" src="../_static/sphinx-thebe.js?v=c100c467"></script>
     <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
     <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
+    <script>window.MathJax = {"options": {"processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
+    <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
     <script>DOCUMENTATION_OPTIONS.pagename = 'docs/datasets-and-preprocessing';</script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
     <link rel="index" title="Index" href="../genindex.html" />
@@ -143,7 +145,7 @@
     
   
 
-<a class="navbar-brand logo" href="home.html">
+<a class="navbar-brand logo" href="introduction.html">
   
   
   
@@ -169,13 +171,12 @@
         
         <ul class="nav bd-sidenav bd-sidenav__home-link">
             <li class="toctree-l1">
-                <a class="reference internal" href="home.html">
-                    Powering Europe’s Future: An Analysis of the Sustainable Energy Transition
+                <a class="reference internal" href="introduction.html">
+                    Introduction
                 </a>
             </li>
         </ul>
         <ul class="current nav bd-sidenav">
-<li class="toctree-l1"><a class="reference internal" href="introduction.html">Introduction</a></li>
 <li class="toctree-l1 current active"><a class="current reference internal" href="#">Datasets and preprocessing</a></li>
 <li class="toctree-l1"><a class="reference internal" href="visualizations.html">Visualizations</a></li>
 <li class="toctree-l1"><a class="reference internal" href="reflection.html">Reflection</a></li>
@@ -383,7 +384,9 @@ document.write(`
   </button>
 `);
 </script>
-
+<button class="sidebar-toggle secondary-toggle btn btn-sm" title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="fa-solid fa-list"></span>
+</button>
 </div></div>
       
     </div>
@@ -399,6 +402,32 @@ document.write(`
     <div id="print-main-content">
         <div id="jb-print-toc">
             
+            <div>
+                <h2> Contents </h2>
+            </div>
+            <nav aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#datasets">Datasets</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#dataset-1-monthly-electricity-production-by-source">Dataset 1: Monthly Electricity Production by Source</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#dataset-2-global-co2-and-greenhouse-gas-emissions">Dataset 2: Global CO2 and Greenhouse Gas Emissions</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#dataset-3-european-wholesale-electricity-price-data">Dataset 3: European Wholesale Electricity Price Data</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#cleaning">Cleaning</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#phase-1-structural-harmonization">Phase 1: Structural Harmonization</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#phase-2-data-quality-and-filtering">Phase 2: Data Quality and Filtering</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#aggregations">Aggregations</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#renewable-share">Renewable Share</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#co2-intensity">CO₂ Intensity</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#price-volatility">Price Volatility</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#investment-needs">Investment Needs</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#variable-classifications">Variable Classifications</a></li>
+</ul>
+            </nav>
         </div>
     </div>
 </div>
@@ -410,6 +439,118 @@ document.write(`
                   
   <section class="tex2jax_ignore mathjax_ignore" id="datasets-and-preprocessing">
 <h1>Datasets and preprocessing<a class="headerlink" href="#datasets-and-preprocessing" title="Link to this heading">#</a></h1>
+<section id="datasets">
+<h2>Datasets<a class="headerlink" href="#datasets" title="Link to this heading">#</a></h2>
+<p>To analyze Europe’s energy transition from both climate urgency and economic feasibility perspectives, we selected three datasets that collectively cover electricity production, emissions, and market prices. Sufficient temporal coverage and standardized country labels were required to enable reliable cross-country comparisons.</p>
+<section id="dataset-1-monthly-electricity-production-by-source">
+<h3>Dataset 1: Monthly Electricity Production by Source<a class="headerlink" href="#dataset-1-monthly-electricity-production-by-source" title="Link to this heading">#</a></h3>
+<ul class="simple">
+<li><p><strong>Source:</strong> <a class="reference external" href="https://www.iea.org/data-and-statistics/data-product/monthly-electricity-statistics">IEA Monthly Electricity Statistics</a></p></li>
+<li><p><strong>Original File:</strong> <code class="docutils literal notranslate"><span class="pre">data2.csv</span></code></p></li>
+<li><p><strong>Period Covered:</strong> 2010–2025</p></li>
+<li><p><strong>Size:</strong> 150,850 rows, 6 columns</p></li>
+<li><p><strong>Key Fields (Relevant to Economic Feasibility &amp; Sustainability Progress):</strong></p>
+<ul>
+<li><p><code class="docutils literal notranslate"><span class="pre">Country</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">Product</span> <span class="pre">(energy</span> <span class="pre">source)</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">Value</span> <span class="pre">(GWh)</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">Balance</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">Time</span></code></p></li>
+</ul>
+</li>
+</ul>
+<p>This dataset enables granular, source-specific monthly energy trend analysis by country, vital for assessing current energy mixes and the progress of the energy transition towards sustainability. It is fundamental for understanding the scope of energy production that needs to be decarbonized.</p>
+</section>
+<hr class="docutils" />
+<section id="dataset-2-global-co2-and-greenhouse-gas-emissions">
+<h3>Dataset 2: Global CO2 and Greenhouse Gas Emissions<a class="headerlink" href="#dataset-2-global-co2-and-greenhouse-gas-emissions" title="Link to this heading">#</a></h3>
+<ul class="simple">
+<li><p><strong>Source:</strong> <a class="reference external" href="https://github.com/owid/co2-data/blob/master/owid-co2-data.csv">GitHub – Our World in Data CO2 Data</a></p></li>
+<li><p><strong>Original File:</strong> <code class="docutils literal notranslate"><span class="pre">owid-co2-data.csv</span></code></p></li>
+<li><p><strong>Period Covered:</strong> 1750–2023</p></li>
+<li><p><strong>Size:</strong> 50,191 rows, 79 columns</p></li>
+<li><p><strong>Key Variables (Relevant to Economic Feasibility &amp; Climate Necessity):</strong></p>
+<ul>
+<li><p><code class="docutils literal notranslate"><span class="pre">country</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">year</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">gdp</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">population</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">co2</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">co2_per_capita</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">temperature_change_from_co2</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">temperature_change_from_ghg</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">total_ghg</span></code></p></li>
+<li><p>other fuel-specific emissions</p></li>
+</ul>
+</li>
+</ul>
+<p>This dataset provides extensive global data on CO2 and greenhouse gas emissions, alongside socioeconomic indicators and temperature change metrics. It is crucial for quantifying the climate necessity for sustainability and understanding the economic context of emission reduction efforts.</p>
+</section>
+<hr class="docutils" />
+<section id="dataset-3-european-wholesale-electricity-price-data">
+<h3>Dataset 3: European Wholesale Electricity Price Data<a class="headerlink" href="#dataset-3-european-wholesale-electricity-price-data" title="Link to this heading">#</a></h3>
+<ul class="simple">
+<li><p><strong>Source:</strong> <a class="reference external" href="https://ember-energy.org/data/european-wholesale-electricity-price-data/">Ember – European Wholesale Electricity Price Data</a></p></li>
+<li><p><strong>Original File:</strong> <code class="docutils literal notranslate"><span class="pre">european_wholesale_electricity_price_data_monthly.csv</span></code></p></li>
+<li><p><strong>Period Covered:</strong> 2015-01 to 2025-06</p></li>
+<li><p><strong>Size:</strong> 3,690 rows, 4 columns</p></li>
+<li><p><strong>Key Variables (Relevant to Economic Feasibility):</strong></p>
+<ul>
+<li><p><code class="docutils literal notranslate"><span class="pre">Country</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">Date</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">Price</span> <span class="pre">(EUR/MWhe)</span></code></p></li>
+</ul>
+</li>
+</ul>
+<p>This dataset is essential for analyzing the economic feasibility of energy transition by tracking the fluctuating costs of electricity across European markets, providing insight into the financial burdens and potential market impacts of moving towards sustainable energy.</p>
+</section>
+</section>
+<hr class="docutils" />
+<section id="cleaning">
+<h2>Cleaning<a class="headerlink" href="#cleaning" title="Link to this heading">#</a></h2>
+<section id="phase-1-structural-harmonization">
+<h3>Phase 1: Structural Harmonization<a class="headerlink" href="#phase-1-structural-harmonization" title="Link to this heading">#</a></h3>
+<p>The process began by addressing inconsistencies in column naming and data structure across the three datasets. Country names required careful standardization since each source used slightly different naming conventions (e.g., “Czechia” vs “Czech Republic”). Country names were manually mapped to ensure consistent identification across datasets. Time variables were particularly challenging, as Dataset 1 used text-based month-year combinations (“March 2025”), Dataset 2 used simple year integers, and Dataset 3 used standard datetime formats. Unified temporal fields were created where necessary.</p>
+</section>
+<section id="phase-2-data-quality-and-filtering">
+<h3>Phase 2: Data Quality and Filtering<a class="headerlink" href="#phase-2-data-quality-and-filtering" title="Link to this heading">#</a></h3>
+<p>The second phase involved extensive filtering to focus on the European analysis scope. A comprehensive list of 31 European countries (including EU-27 plus Norway, Switzerland, Iceland, and the UK) was defined and all datasets were filtered accordingly. For the electricity production data, aggregate categories were excluded to focus on meaningful energy source classifications. Missing values were handled differently depending on context - CO2 fuel breakdowns were filled with zeros where appropriate, while other missing economic indicators were preserved as NaN for transparency. Temporal filtering was also implemented, focusing on periods with reliable data coverage. For emissions analysis, data from 1950 onwards was primarily used, while electricity price analysis started from 2015 when comprehensive European market data became available.</p>
+</section>
+</section>
+<hr class="docutils" />
+<section id="aggregations">
+<h2>Aggregations<a class="headerlink" href="#aggregations" title="Link to this heading">#</a></h2>
+<section id="renewable-share">
+<h3>Renewable Share<a class="headerlink" href="#renewable-share" title="Link to this heading">#</a></h3>
+<p><span class="math notranslate nohighlight">\(\text{renewable\_share} = \frac{\sum(\text{solar, wind, hydro, other renewables})}{\text{total production}}\)</span></p>
+</section>
+<section id="co2-intensity">
+<h3>CO₂ Intensity<a class="headerlink" href="#co2-intensity" title="Link to this heading">#</a></h3>
+<p><span class="math notranslate nohighlight">\(\text{co2\_intensity} = \frac{\text{total CO₂ emissions}}{\text{GDP}}\)</span></p>
+</section>
+<section id="price-volatility">
+<h3>Price Volatility<a class="headerlink" href="#price-volatility" title="Link to this heading">#</a></h3>
+<ul class="simple">
+<li><p>Monthly rolling standard deviation of prices</p></li>
+<li><p>Year-over-year price changes</p></li>
+</ul>
+</section>
+<section id="investment-needs">
+<h3>Investment Needs<a class="headerlink" href="#investment-needs" title="Link to this heading">#</a></h3>
+<ul class="simple">
+<li><p>Estimated capital requirements (using capacity factors and cost assumptions) as percent of GDP</p></li>
+</ul>
+</section>
+</section>
+<section id="variable-classifications">
+<h2>Variable Classifications<a class="headerlink" href="#variable-classifications" title="Link to this heading">#</a></h2>
+<ul class="simple">
+<li><p><strong>Continuous:</strong> production (GWh), GDP, population, CO₂ emissions, CO₂ per capita, price (EUR/MWhe), renewable_share, co2_intensity</p></li>
+<li><p><strong>Categorical:</strong> Country, Product, Balance</p></li>
+<li><p><strong>Temporal:</strong> year, Date, Time</p></li>
+<li><p><strong>Derived:</strong> energy_intensity, renewable_growth_rate, price_volatility, investment_requirement_pct_gdp</p></li>
+</ul>
+</section>
 </section>
 
     <script type="text/x-thebe-config">
@@ -466,6 +607,39 @@ document.write(`
             </div>
             
             
+              
+                <div class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+
+  <div class="sidebar-secondary-item">
+  <div class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> Contents
+  </div>
+  <nav class="bd-toc-nav page-toc">
+    <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#datasets">Datasets</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#dataset-1-monthly-electricity-production-by-source">Dataset 1: Monthly Electricity Production by Source</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#dataset-2-global-co2-and-greenhouse-gas-emissions">Dataset 2: Global CO2 and Greenhouse Gas Emissions</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#dataset-3-european-wholesale-electricity-price-data">Dataset 3: European Wholesale Electricity Price Data</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#cleaning">Cleaning</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#phase-1-structural-harmonization">Phase 1: Structural Harmonization</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#phase-2-data-quality-and-filtering">Phase 2: Data Quality and Filtering</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#aggregations">Aggregations</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#renewable-share">Renewable Share</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#co2-intensity">CO₂ Intensity</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#price-volatility">Price Volatility</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#investment-needs">Investment Needs</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#variable-classifications">Variable Classifications</a></li>
+</ul>
+  </nav></div>
+
+</div></div>
               
             
           </div>

@@ -57,12 +57,13 @@
     <script async="async" src="../_static/sphinx-thebe.js?v=c100c467"></script>
     <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
     <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
+    <script>window.MathJax = {"options": {"processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
+    <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
     <script>DOCUMENTATION_OPTIONS.pagename = 'docs/introduction';</script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
     <link rel="next" title="Datasets and preprocessing" href="datasets-and-preprocessing.html" />
-    <link rel="prev" title="Powering Europe’s Future: An Analysis of the Sustainable Energy Transition" href="home.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="docsearch:language" content="en"/>
   </head>
@@ -125,6 +126,8 @@
       
       
       
+        
+      
       <div class="bd-sidebar-primary bd-sidebar">
         
 
@@ -143,7 +146,7 @@
     
   
 
-<a class="navbar-brand logo" href="home.html">
+<a class="navbar-brand logo" href="#">
   
   
   
@@ -168,14 +171,13 @@
     <div class="bd-toc-item navbar-nav active">
         
         <ul class="nav bd-sidenav bd-sidenav__home-link">
-            <li class="toctree-l1">
-                <a class="reference internal" href="home.html">
-                    Powering Europe’s Future: An Analysis of the Sustainable Energy Transition
+            <li class="toctree-l1 current active">
+                <a class="reference internal" href="#">
+                    Introduction
                 </a>
             </li>
         </ul>
-        <ul class="current nav bd-sidenav">
-<li class="toctree-l1 current active"><a class="current reference internal" href="#">Introduction</a></li>
+        <ul class="nav bd-sidenav">
 <li class="toctree-l1"><a class="reference internal" href="datasets-and-preprocessing.html">Datasets and preprocessing</a></li>
 <li class="toctree-l1"><a class="reference internal" href="visualizations.html">Visualizations</a></li>
 <li class="toctree-l1"><a class="reference internal" href="reflection.html">Reflection</a></li>
@@ -383,9 +385,7 @@ document.write(`
   </button>
 `);
 </script>
-<button class="sidebar-toggle secondary-toggle btn btn-sm" title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
-    <span class="fa-solid fa-list"></span>
-</button>
+
 </div></div>
       
     </div>
@@ -401,15 +401,6 @@ document.write(`
     <div id="print-main-content">
         <div id="jb-print-toc">
             
-            <div>
-                <h2> Contents </h2>
-            </div>
-            <nav aria-label="Page">
-                <ul class="visible nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#economic-and-social-feasibility-of-the-energy-transition">Economic and Social Feasibility of the Energy Transition</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#climate-urgency-for-energy-transition">Climate Urgency for Energy Transition</a></li>
-</ul>
-            </nav>
         </div>
     </div>
 </div>
@@ -421,25 +412,14 @@ document.write(`
                   
   <section class="tex2jax_ignore mathjax_ignore" id="introduction">
 <h1>Introduction<a class="headerlink" href="#introduction" title="Link to this heading">#</a></h1>
-<p>For many years, fossil fuels have been the main source of energy globally, but increasing awareness about climate change has pushed renewable energy to the forefront. Renewable energy sources like wind, solar, and hydropower are gaining attention as sustainable alternatives. However, how quickly Europe can realistically transition to these cleaner energy sources remains a major debate.</p>
-<p>In this data story, we explore Europe’s shift towards renewable energy, looking at both the urgency driven by climate change and the economic realities involved. We examine monthly electricity production, economic factors, and country-specific data to highlight key tensions in this transition.</p>
-<p>On one hand, transitioning quickly could help reduce severe climate impacts like extreme weather events, biodiversity loss, and declining agricultural yields. On the other hand, rapid change poses significant financial and logistical challenges, including high investment costs, dependency on imported materials, and the need to update outdated infrastructure.</p>
-<p>Through data visualizations and analysis, we aim to clarify whether Europe’s energy goals are realistically achievable within current economic constraints, or if the gap between ambitious climate targets and practical realities continues to widen.</p>
-<section id="economic-and-social-feasibility-of-the-energy-transition">
-<h2>Economic and Social Feasibility of the Energy Transition<a class="headerlink" href="#economic-and-social-feasibility-of-the-energy-transition" title="Link to this heading">#</a></h2>
-<p>One critical aspect of Europe’s shift to renewable energy is understanding if countries can economically and socially handle this major change. Fully decarbonizing Europe’s energy system will require huge investments, estimated at several trillion euros over the coming decades (European Commission, 2020). Despite these high initial costs, the price of renewable energy technology has significantly dropped, making these investments increasingly similar to current energy expenses (IRENA, 2021).</p>
-<p>Economists and policymakers believe that investing in renewables can positively impact the European economy, boosting growth and creating thousands of new jobs. For example, shifting to renewable energy might cost countries like the Netherlands between 10% and 15% of their annual GDP, an investment seen as manageable within Europe’s overall economic strength.</p>
-<p>Most European nations, especially wealthier ones such as Germany, France, and the Netherlands, have the financial capability to allocate substantial resources towards this transition. These countries can comfortably fund large-scale renewable projects, especially with additional financial support from the European Union (European Investment Bank, 2022). However, not all countries are equally financially stable. Some smaller or economically weaker nations might face difficulties obtaining affordable financing, potentially leading to higher borrowing costs and slower progress.</p>
-<p>Another important challenge is the availability of essential raw materials required for renewable energy technologies, such as lithium, cobalt, and rare earth metals used in batteries and wind turbines. Europe’s reliance on imported materials means that supply shortages could delay projects significantly (European Commission, 2022).</p>
-<p>Lastly, infrastructure poses another significant hurdle. To effectively utilize renewable energy, Europe’s electricity grids need substantial modernization. Countries with excellent renewable resources but outdated grids may need significant upgrades before fully adopting renewable solutions (ENTSO-E, 2021).</p>
-</section>
-<section id="climate-urgency-for-energy-transition">
-<h2>Climate Urgency for Energy Transition<a class="headerlink" href="#climate-urgency-for-energy-transition" title="Link to this heading">#</a></h2>
-<p>The urgency of the climate crisis further emphasizes the need for a quick transition to renewable energy. Europe’s climate is warming, already resulting in noticeable effects on agriculture. Rising temperatures and prolonged droughts are increasingly reducing crop yields. For instance, maize production in Southern Europe might drop by up to half if temperatures rise by about 3°C (IPCC, 2021). Even smaller increases are already impacting harvests, particularly in regions experiencing frequent droughts.</p>
-<p>Climate change is also intensifying extreme weather events across Europe. Floods, storms, and droughts are becoming more severe and frequent. The summer of 2023 was Europe’s hottest on record, marked by unprecedented storms and heavy rainfall, damaging buildings, destroying crops, and posing risks to public safety (Copernicus Climate Change Service, 2023).</p>
-<p>Furthermore, warming temperatures are disrupting ecosystems, threatening biodiversity. Each additional degree of warming reduces habitats for plants and animals. Beyond a 2°C temperature increase, these ecological changes risk becoming permanent, weakening natural defenses against climate hazards like floods and heatwaves (IPCC, 2021).</p>
-<p>Climate scientists have emphasized that there is limited time left to take effective action. Global CO2 emissions need to drop significantly—40% to 60% lower than 2010 levels by 2030—to limit global warming to 1.5°C, with a goal of achieving net-zero emissions by around 2050 (IPCC, 2022). Delaying the transition to renewable energy makes achieving these targets increasingly difficult and raises the risk of irreversible impacts, such as long-term sea level rise and widespread species extinction.</p>
-</section>
+<p>Europe’s energy landscape is changing fast. Until now, most of our electricity has come from coal, gas and oil—but rising concern over climate change means renewables like wind, solar and hydro are taking a front seat. In this project, we look at how Europe’s energy mix has shifted month by month, how much it costs to build and operate clean-energy systems, and how ready different countries are for the switch. To frame our analysis, we consider two key perspectives:</p>
+<p>Climate urgency: The need to speed up the shift to renewables in order to limit temperature rise and avoid severe impacts on agriculture, ecosystems and extreme weather.</p>
+<p>Economic reality: The financial and logistical challenges of replacing existing infrastructure, securing raw materials and funding large-scale renewable projects across diverse economies.</p>
+<p>First, we’ll explore trends in monthly electricity generation by source, so you can see exactly how renewables are growing compared to traditional fuels. Next, we’ll break down the investment needed to expand wind farms, solar parks and hydro plants—and compare those figures to national GDPs to understand the financial challenge. Finally, we’ll map which countries have the resources, infrastructure and funding in place, and which may struggle as they move away from fossil fuels.</p>
+<p>Pulling together data on generation volumes, technology costs and country-level indicators, this analysis will show where Europe stands today and highlight the biggest hurdles on the road to a cleaner, more reliable power system. Along the way, our visuals will bring the numbers to life and help explain what it all means for the continent’s energy future</p>
+<p><a class="reference internal" href="visualizations.html"><span class="std std-doc">Click here to explore the insights directly</span></a></p>
+<div class="toctree-wrapper compound">
+</div>
 </section>
 
     <script type="text/x-thebe-config">
@@ -472,15 +452,6 @@ document.write(`
                 <footer class="prev-next-footer d-print-none">
                   
 <div class="prev-next-area">
-    <a class="left-prev"
-       href="home.html"
-       title="previous page">
-      <i class="fa-solid fa-angle-left"></i>
-      <div class="prev-next-info">
-        <p class="prev-next-subtitle">previous</p>
-        <p class="prev-next-title">Powering Europe’s Future: An Analysis of the Sustainable Energy Transition</p>
-      </div>
-    </a>
     <a class="right-next"
        href="datasets-and-preprocessing.html"
        title="next page">
@@ -496,22 +467,6 @@ document.write(`
             </div>
             
             
-              
-                <div class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
-
-
-  <div class="sidebar-secondary-item">
-  <div class="page-toc tocsection onthispage">
-    <i class="fa-solid fa-list"></i> Contents
-  </div>
-  <nav class="bd-toc-nav page-toc">
-    <ul class="visible nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#economic-and-social-feasibility-of-the-energy-transition">Economic and Social Feasibility of the Energy Transition</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#climate-urgency-for-energy-transition">Climate Urgency for Energy Transition</a></li>
-</ul>
-  </nav></div>
-
-</div></div>
               
             
           </div>
