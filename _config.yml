@@ -27,6 +27,7 @@ html:
   use_repository_button: true
   logo: images/logo.png
   favicon: images/favicon1.ico
+  # favicon: images/favicon2.ico
   extra_static_paths:
     - docs/images
 
