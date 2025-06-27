@@ -1,0 +1,269 @@
+[33mcommit 5c8a42b76d777c59aaf2b08dcf5da2ffd10ec75f[m[33m ([m[1;36mHEAD[m[33m -> [m[1;32mmain[m[33m, [m[1;31morigin/main[m[33m, [m[1;31morigin/HEAD[m[33m)[m
+Author: Jordan-C-Pro <jordancheukalam@gmail.com>
+Date:   Fri Jun 27 17:31:13 2025 +0200
+
+    Update perspectives.ipynb
+
+[33mcommit ec15d356fe7a1699ce1413670be71877ee2a5e69[m
+Merge: 00a565a 24ee764
+Author: leonardos <leonardo.sabatini@student.uva.nl>
+Date:   Fri Jun 27 17:26:52 2025 +0200
+
+    Add graph, new databse
+
+[33mcommit 00a565a6bc1f663e95d6dd90918d74c7b5ba22ee[m
+Author: leonardos <leonardo.sabatini@student.uva.nl>
+Date:   Fri Jun 27 17:25:07 2025 +0200
+
+    Add one graph and new database:
+
+[33mcommit 24ee764248cc93f172ceb5d42b464f7d73030b1e[m
+Author: Astille13 <santino.petrovic@student.uva.nl>
+Date:   Fri Jun 27 17:24:54 2025 +0200
+
+    Update perspectives.ipynb
+
+[33mcommit be95c66307a775c017b99dc779ab2c36acc3ab5b[m
+Author: Astille13 <santino.petrovic@student.uva.nl>
+Date:   Fri Jun 27 17:15:25 2025 +0200
+
+    banana
+
+[33mcommit 8fb78a127ca0bae271435f1afd8fb957939e04a7[m
+Author: leonardos <leonardo.sabatini@student.uva.nl>
+Date:   Fri Jun 27 17:00:04 2025 +0200
+
+    Added new database
+
+[33mcommit ff30c94d2188f3f79c670a939d30ef1cc0f5d75c[m
+Author: leonardos <leonardo.sabatini@student.uva.nl>
+Date:   Fri Jun 27 16:18:06 2025 +0200
+
+    Add one graph
+
+[33mcommit 854b52b0da73ebeef28c66cbe3dfbcc3ff891c1d[m
+Merge: 0ad247a 7c5b483
+Author: leonardos <leonardo.sabatini@student.uva.nl>
+Date:   Fri Jun 27 16:15:58 2025 +0200
+
+    Merge remote-tracking branch 'origin'
+
+[33mcommit 0ad247a2d367739b8d6f85a79cc9f55597773545[m
+Author: leonardos <leonardo.sabatini@student.uva.nl>
+Date:   Fri Jun 27 16:15:49 2025 +0200
+
+    Add one graph
+
+[33mcommit 7c5b483c55ccf946b2d89abe331f8997592223cb[m
+Merge: 2191845 a07b17d
+Author: Jordan-C-Pro <jordancheukalam@gmail.com>
+Date:   Fri Jun 27 16:14:10 2025 +0200
+
+    Merge branch 'main' of https://github.com/leosabatiny/InfoVis
+
+[33mcommit 21918451d2877b0eab66087639bdac94f7db1b62[m
+Author: Jordan-C-Pro <jordancheukalam@gmail.com>
+Date:   Fri Jun 27 16:13:56 2025 +0200
+
+    graph update
+    
+    eerste graph verbeterd en de andere zorgen dat ze werken op de github
+
+[33mcommit a07b17d0679e810bc5227d5453fc22671c1bea93[m
+Author: leonardos <leonardo.sabatini@student.uva.nl>
+Date:   Fri Jun 27 16:02:30 2025 +0200
+
+    Remove unused dataset
+
+[33mcommit 515b21022932cae70acc4b0cef0bc9a0218fe5e0[m
+Author: leonardos <leonardo.sabatini@student.uva.nl>
+Date:   Fri Jun 27 15:15:20 2025 +0200
+
+    Add logo
+
+[33mcommit 918b955db369c51cbb66d0e852b49d7152d08962[m
+Merge: acbf6c2 2a6c340
+Author: leonardos <leonardo.sabatini@student.uva.nl>
+Date:   Fri Jun 27 15:01:42 2025 +0200
+
+    Resized graphs
+
+[33mcommit acbf6c2657711fe55bb8c62e76e160feedf5f859[m
+Author: leonardos <leonardo.sabatini@student.uva.nl>
+Date:   Fri Jun 27 15:00:02 2025 +0200
+
+    Website changes, resizing graphs
+
+[33mcommit 2a6c34056cf4ced882517c7d4f22e0bf4ebee248[m
+Author: Jordan-C-Pro <jordancheukalam@gmail.com>
+Date:   Fri Jun 27 14:40:43 2025 +0200
+
+    update
+    
+    wowowowo
+
+[33mcommit a2b701101958d6bd8a68813d3a435a96968067e3[m
+Merge: 6436045 4d266e2
+Author: Jordan-C-Pro <jordancheukalam@gmail.com>
+Date:   Fri Jun 27 14:31:14 2025 +0200
+
+    Merge branch 'main' of https://github.com/leosabatiny/InfoVis
+
+[33mcommit 6436045cb779ce4dbf83274ce454c7107957f970[m
+Author: Jordan-C-Pro <jordancheukalam@gmail.com>
+Date:   Fri Jun 27 14:31:10 2025 +0200
+
+    update van de
+
+[33mcommit 4d266e220c3f365ab527c9723ed3ea98eac09632[m
+Merge: e5b8359 ad377e8
+Author: leonardos <leonardo.sabatini@student.uva.nl>
+Date:   Fri Jun 27 14:16:04 2025 +0200
+
+    Merge remote-tracking branch 'origin'
+
+[33mcommit e5b83590d1bf4fefcc1aa350ad3d68ace04d9e3c[m
+Author: leonardos <leonardo.sabatini@student.uva.nl>
+Date:   Fri Jun 27 14:15:55 2025 +0200
+
+    Correct spelling mistake
+
+[33mcommit ad377e831209b1019b8b9429591671a864ae0742[m
+Author: HannaDaorah10 <hanna.daorah@student.uva.nl>
+Date:   Fri Jun 27 14:11:28 2025 +0200
+
+    Paar kleine tekstuele aanpassingen
+
+[33mcommit e7d590a0b270337c7cf5197ad9f21742e1869e26[m
+Author: HannaDaorah10 <hanna.daorah@student.uva.nl>
+Date:   Fri Jun 27 14:06:48 2025 +0200
+
+    Update index.ipynb
+
+[33mcommit 9aaf10bdf76b40980c7b1a3876c830f5f16eb1a6[m
+Author: Jordan-C-Pro <jordancheukalam@gmail.com>
+Date:   Fri Jun 27 13:55:50 2025 +0200
+
+    update de upgrade
+    
+    de grafieke die blauw zijn zijn nu perfect
+
+[33mcommit 0085cd84651c16df2b1ed7e2f294604bc1015399[m
+Merge: 604c754 ca84e91
+Author: Jordan-C-Pro <jordancheukalam@gmail.com>
+Date:   Fri Jun 27 12:56:03 2025 +0200
+
+    Merge branch 'main' of https://github.com/leosabatiny/InfoVis
+
+[33mcommit 604c754ddfd4df472d4c8c2c2661e911d8d16262[m
+Author: Jordan-C-Pro <jordancheukalam@gmail.com>
+Date:   Fri Jun 27 12:55:50 2025 +0200
+
+    alvast update van visuals
+    
+    ik moet nog door gaan
+
+[33mcommit ca84e910cba828034a4b2ce3ed7aca9814664a6b[m
+Author: leonardos <leonardo.sabatini@student.uva.nl>
+Date:   Fri Jun 27 12:34:19 2025 +0200
+
+    Corrected spelling mistakes, changed some sentences in reflection.ipynb and perspectives.ipynb
+
+[33mcommit eeed6ec86129da77ae958860ea74bff8c34b23dc[m
+Author: Jordan-C-Pro <jordancheukalam@gmail.com>
+Date:   Fri Jun 27 11:43:09 2025 +0200
+
+    Update perspectives.ipynb
+
+[33mcommit 2dece312cdcd1e4433603dd4cb9498b07b01d23e[m
+Author: Astille13 <santino.petrovic@student.uva.nl>
+Date:   Thu Jun 26 23:52:19 2025 +0200
+
+    Update work-distribution.ipynb
+
+[33mcommit 85933e4dd382ca29769b0d783aeb9037ca217f27[m
+Author: Astille13 <santino.petrovic@student.uva.nl>
+Date:   Thu Jun 26 23:50:31 2025 +0200
+
+    banana
+
+[33mcommit 175d9bbacaa44657396c0de30adb104e0b792bbd[m
+Author: Astille13 <santino.petrovic@student.uva.nl>
+Date:   Thu Jun 26 22:35:40 2025 +0200
+
+    refle
+
+[33mcommit 7ccdcac35a3e0a6aa50ecb9a75353437183912b4[m
+Author: Astille13 <santino.petrovic@student.uva.nl>
+Date:   Thu Jun 26 22:12:36 2025 +0200
+
+    banan
+
+[33mcommit 0a0067a089f847da579b310feaabad5b725d042b[m
+Author: leonardos <leonardo.sabatini@student.uva.nl>
+Date:   Thu Jun 26 21:53:12 2025 +0200
+
+    Jupyterbook changes:
+
+[33mcommit 85c36d6182c007adebfae15917bc72a1ed1ef772[m
+Author: leonardos <leonardo.sabatini@student.uva.nl>
+Date:   Thu Jun 26 21:49:05 2025 +0200
+
+    Website changes
+
+[33mcommit 656ab8502cc811a0c56e8033ad331136278792cd[m
+Author: leonardos <leonardo.sabatini@student.uva.nl>
+Date:   Thu Jun 26 21:39:36 2025 +0200
+
+    website changes
+
+[33mcommit 486d39967e5712925bed8c904bb6d4c72f0ec02f[m
+Author: leonardos <leonardo.sabatini@student.uva.nl>
+Date:   Thu Jun 26 21:31:47 2025 +0200
+
+    Website changes
+
+[33mcommit 4098ada604f630751f711027fe85e680a5232f20[m
+Author: leonardos <leonardo.sabatini@student.uva.nl>
+Date:   Thu Jun 26 21:22:08 2025 +0200
+
+    Website changes
+
+[33mcommit 51d0c6235c1d8e842656bd01cbb58d64e663d3d1[m
+Author: leonardos <leonardo.sabatini@student.uva.nl>
+Date:   Thu Jun 26 21:16:19 2025 +0200
+
+    Added icons, banners and logo
+
+[33mcommit f00bee582738163c223e3a8d6c2a08973965b1be[m
+Author: HannaDaorah10 <hanna.daorah@student.uva.nl>
+Date:   Thu Jun 26 21:10:20 2025 +0200
+
+    Update code.ipynb
+
+[33mcommit 737b95b88e91453eccdf41d3e16d78131f1600f4[m
+Author: leonardos <leonardo.sabatini@student.uva.nl>
+Date:   Thu Jun 26 20:19:04 2025 +0200
+
+    Is home nou weg?
+
+[33mcommit 514619526931d8c42d03030a2d146f49cc938296[m
+Author: leonardos <leonardo.sabatini@student.uva.nl>
+Date:   Thu Jun 26 20:12:43 2025 +0200
+
+    REMOVE INTRODUCTIONPAGE.MD WAT DE FUCK IS DAT UBERHAUPT IK BEN ER KLAAR MEE
+
+[33mcommit 173e86399c64bce574b26bd0998543030815cd1d[m
+Author: leonardos <leonardo.sabatini@student.uva.nl>
+Date:   Thu Jun 26 20:06:53 2025 +0200
+
+    Remove home.ipynb (old perspectives), website changes
+
+[33mcommit ab68f947660450a122f08d730d6157afd892ec9e[m
+Author: leonardos <leonardo.sabatini@student.uva.nl>
+Date:   Thu Jun 26 19:09:00 2025 +0200
+
+    Website changes, rename introduction.ipynb --> index.ipynb to show as landing page of jupyterbook, adjust toc structure
+
+[33mcommit d6d2bd55dfea043071233067f8d44fc602cfcdf0[m
+Author: leonardos <leonar
