@@ -418,6 +418,7 @@ document.write(`
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#dataset-1-monthly-electricity-production-by-source">Dataset 1: Monthly Electricity Production by Source</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#dataset-2-global-co2-and-greenhouse-gas-emissions">Dataset 2: Global CO2 and Greenhouse Gas Emissions</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#dataset-3-european-wholesale-electricity-price-data">Dataset 3: European Wholesale Electricity Price Data</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#dataset-4-global-land-temperatures-by-country">Dataset 4: Global Land Temperatures by Country</a></li>
 </ul>
 </li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#cleaning">Cleaning</a><ul class="nav section-nav flex-column">
@@ -429,7 +430,6 @@ document.write(`
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#renewable-share">Renewable Share</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#co2-intensity">CO₂ Intensity</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#price-volatility">Price Volatility</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#investment-needs">Investment Needs</a></li>
 </ul>
 </li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#variable-classifications">Variable Classifications</a></li>
@@ -511,17 +511,35 @@ document.write(`
 </ul>
 <p>This dataset is essential for analyzing the economic feasibility of energy transition by tracking the fluctuating costs of electricity across European markets, providing insight into the financial burdens and potential market impacts of moving towards sustainable energy.</p>
 </section>
-</section>
 <hr class="docutils" />
+<section id="dataset-4-global-land-temperatures-by-country">
+<h3>Dataset 4: Global Land Temperatures by Country<a class="headerlink" href="#dataset-4-global-land-temperatures-by-country" title="Link to this heading">#</a></h3>
+<ul class="simple">
+<li><p><strong>Source:</strong> <a class="reference external" href="http://berkeleyearth.org/">Berkeley Earth project</a>, affiliated with Lawrence Berkeley National Laboratory; available via <a class="reference external" href="https://www.kaggle.com/datasets/berkeleyearth/climate-change-earth-surface-temperature-data">Kaggle</a></p></li>
+<li><p><strong>Original File:</strong> <code class="docutils literal notranslate"><span class="pre">GlobalLandTemperaturesByCountry.csv</span></code></p></li>
+<li><p><strong>Period Covered:</strong> 1743–2013</p></li>
+<li><p><strong>Size:</strong> 577,462 rows, 4 columns</p></li>
+<li><p><strong>Key Fields (Relevant to Climate Necessity &amp; Sustainability Progress):</strong></p>
+<ul>
+<li><p><code class="docutils literal notranslate"><span class="pre">dt</span></code> (Date)</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">AverageTemperature</span></code> (degrees Celsius)</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">AverageTemperatureUncertainty</span></code> (degrees Celsius)</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">Country</span></code></p></li>
+</ul>
+</li>
+</ul>
+<p>This dataset provides extensive historical land temperature data by country, which is fundamental for analyzing long-term climate trends, assessing the impact of global warming, and correlating temperature changes with other environmental and human-induced factors. It is crucial for understanding the <strong>climate necessity</strong> for sustainability efforts.</p>
+</section>
+</section>
 <section id="cleaning">
 <h2>Cleaning<a class="headerlink" href="#cleaning" title="Link to this heading">#</a></h2>
 <section id="phase-1-structural-harmonization">
 <h3>Phase 1: Structural Harmonization<a class="headerlink" href="#phase-1-structural-harmonization" title="Link to this heading">#</a></h3>
-<p>The process began by addressing inconsistencies in column naming and data structure across the three datasets. Country names required careful standardization since each source used slightly different naming conventions (e.g., “Czechia” vs “Czech Republic”). Country names were manually mapped to ensure consistent identification across datasets. Time variables were particularly challenging, as Dataset 1 used text-based month-year combinations (“March 2025”), Dataset 2 used simple year integers, and Dataset 3 used standard datetime formats. Unified temporal fields were created where necessary.</p>
+<p>We resolved inconsistencies in column names and formats across datasets. Country names were standardized manually (e.g., “Czechia” vs “Czech Republic”) to ensure consistent matching. Time fields were unified—converting varied formats like text-based months, year integers, and datetime objects into a common structure.</p>
 </section>
 <section id="phase-2-data-quality-and-filtering">
 <h3>Phase 2: Data Quality and Filtering<a class="headerlink" href="#phase-2-data-quality-and-filtering" title="Link to this heading">#</a></h3>
-<p>The second phase involved extensive filtering to focus on the European analysis scope. A comprehensive list of 31 European countries (including EU-27 plus Norway, Switzerland, Iceland, and the UK) was defined and all datasets were filtered accordingly. For the electricity production data, aggregate categories were excluded to focus on meaningful energy source classifications. Missing values were handled differently depending on context - CO2 fuel breakdowns were filled with zeros where appropriate, while other missing economic indicators were preserved as NaN for transparency. Temporal filtering was also implemented, focusing on periods with reliable data coverage. For emissions analysis, data from 1950 onwards was primarily used, while electricity price analysis started from 2015 when comprehensive European market data became available.</p>
+<p>We filtered all datasets to include only 31 European countries (EU-27 plus Norway, Switzerland, Iceland, and the UK). Aggregate categories were removed to focus on specific energy sources. Missing values were handled contextually—zero-filled for CO₂ subcategories, preserved as NaN for economic indicators. We restricted analysis to years with reliable coverage: emissions from 1950 onward, and electricity prices from 2015.</p>
 </section>
 </section>
 <hr class="docutils" />
@@ -540,12 +558,6 @@ document.write(`
 <ul class="simple">
 <li><p>Monthly rolling standard deviation of prices</p></li>
 <li><p>Year-over-year price changes</p></li>
-</ul>
-</section>
-<section id="investment-needs">
-<h3>Investment Needs<a class="headerlink" href="#investment-needs" title="Link to this heading">#</a></h3>
-<ul class="simple">
-<li><p>Estimated capital requirements (using capacity factors and cost assumptions) as percent of GDP</p></li>
 </ul>
 </section>
 </section>
@@ -628,6 +640,7 @@ document.write(`
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#dataset-1-monthly-electricity-production-by-source">Dataset 1: Monthly Electricity Production by Source</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#dataset-2-global-co2-and-greenhouse-gas-emissions">Dataset 2: Global CO2 and Greenhouse Gas Emissions</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#dataset-3-european-wholesale-electricity-price-data">Dataset 3: European Wholesale Electricity Price Data</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#dataset-4-global-land-temperatures-by-country">Dataset 4: Global Land Temperatures by Country</a></li>
 </ul>
 </li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#cleaning">Cleaning</a><ul class="nav section-nav flex-column">
@@ -639,7 +652,6 @@ document.write(`
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#renewable-share">Renewable Share</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#co2-intensity">CO₂ Intensity</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#price-volatility">Price Volatility</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#investment-needs">Investment Needs</a></li>
 </ul>
 </li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#variable-classifications">Variable Classifications</a></li>
